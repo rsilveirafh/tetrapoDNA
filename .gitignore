@@ -1,0 +1,16 @@
+# Quarto
+/_site/
+/.quarto/
+*_files/
+/*.html
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Renviron
+
+# local
+CLAUDE.md
+.claude/
+*.log
