@@ -8,7 +8,7 @@
 #
 # Variáveis de ambiente: NCBI_API_KEY (opcional, 10 req/s), NCBI_EMAIL (opcional).
 
-for (f in c("utils", "listas", "ctfb", "bold", "genbank", "junta")) {
+for (f in c("utils", "listas", "ameaca", "ctfb", "bold", "genbank", "junta")) {
   source(file.path("R", paste0(f, ".R")), encoding = "UTF-8")
 }
 
@@ -28,7 +28,7 @@ baixar <- !isTRUE(arg("sem-baixar", FALSE))
 avisos <- character()
 
 # 1. Listas (todas, sempre: é barato) ------------------------------------------
-especies <- monta_listas(GRUPOS$grupo, baixar = baixar)
+especies <- monta_listas(GRUPOS$grupo, baixar = baixar) |> aplica_ameaca_mma2026()
 
 # 2. CTFB: sinônimos, UF, endemismo, ano ----------------------------------------
 ctfb <- tryCatch(atualiza_ctfb(GRUPOS$classe), error = function(e) {
