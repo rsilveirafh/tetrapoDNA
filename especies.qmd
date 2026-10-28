@@ -57,19 +57,20 @@ filtradas = {
 //| title: "Espécies"
 {
   const tab = Inputs.table(filtradas, {
-    columns: ["especie", "situacao", "grupo_rotulo", "familia", "ano_descricao",
-              "categoria_ameaca", "endemica", "n_bold", "n_genbank", "ufs", "observacao", "adocao"],
+    columns: ["especie", "adocao", "situacao", "grupo_rotulo", "familia", "ano_descricao",
+              "categoria_ameaca", "endemica", "n_bold", "n_genbank", "ufs", "observacao"],
     header: {especie: "Espécie", situacao: "Situação", grupo_rotulo: "Grupo", familia: "Família",
              ano_descricao: "Descrita em", categoria_ameaca: "Ameaça", endemica: "Endêmica",
              n_bold: "BOLD", n_genbank: "GenBank", ufs: "UFs", observacao: "Observação",
-             adocao: "Adoção"},
+             adocao: ""},
     format: {
       especie: d => htl.html`<em>${d}</em>`,
       situacao: selo_situacao,
       ano_descricao: d => d ? String(d) : "",
       endemica: d => d ? "sim" : "",
-      n_bold: d => fmtn(d),
-      n_genbank: d => d == null ? "pendente" : fmtn(d),
+      n_bold: (d, i, dados) => htl.html`<a href="https://portal.boldsystems.org/result?query=${encodeURIComponent(dados[i].especie)}[tax]" target="_blank" title="Abrir no BOLD">${fmtn(d)}</a>`,
+      n_genbank: (d, i, dados) => d == null ? "pendente" :
+        htl.html`<a href="https://www.ncbi.nlm.nih.gov/nuccore/?term=${encodeURIComponent('"' + dados[i].especie + '"[Organism]')}" target="_blank" title="Abrir no GenBank">${fmtn(d)}</a>`,
       ufs: d => d ? String(d).replaceAll(";", " ") : "sem dado",
       observacao: d => htl.html`<span class="nota-pequena">${d ?? ""}</span>`,
       adocao: (d, i, dados) => d

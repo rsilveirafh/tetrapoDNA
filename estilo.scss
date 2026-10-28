@@ -12,3 +12,8 @@ $primary: #2a78d6;
 .nota-pequena { font-size: .85em; opacity: .8; }
 .valor-grande { font-size: 2.2rem; font-weight: 600; line-height: 1.1; }
 .vb-claro, .vb-claro .value-box-title, .vb-claro .value-box-value, .vb-claro .value-box-showcase { color: #fff !important; }
+.cell-output-display svg { max-width: 100%; height: auto; }
+@media (max-width: 576px) {
+  .bslib-value-box .value-box-value { font-size: 1.6rem !important; }
+  .bslib-value-box .value-box-showcase { display: none !important; }
+}
