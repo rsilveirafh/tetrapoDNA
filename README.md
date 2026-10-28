@@ -51,12 +51,16 @@ Além das listas:
   Sem chave: 3 req/s; com `NCBI_API_KEY`: 10 req/s.
 - **Catálogo Taxonômico da Fauna do Brasil** (CTFB/JBRJ), API REST `https://fauna.jbrj.gov.br/rest/mv_planilha_extendida`:
   sinônimos, UF (aves; anfíbios sem UF na lista), endemismo e ano de descrição quando faltam.
+- **Portaria MMA nº 1.704/2026** (Lista Nacional Oficial das Espécies da Fauna Ameaçadas de Extinção,
+  Anexo I): categoria nacional de ameaça. Extraída do PDF uma vez por `data-raw/mma_portaria_1704_2026.R`
+  (precisa de `pdftools`); o pipeline lê o CSV versionado.
 - **IBGE**, malha de UFs (API de malhas, qualidade mínima) para o mapa.
 
 ## Estrutura
 
 ```
 R/listas.R      uma função por grupo -> esquema comum (troque a fonte de um grupo aqui)
+R/ameaca.R      categoria nacional (Portaria MMA 1.704/2026)
 R/ctfb.R        CTFB: sinônimos, UF, endemismo
 R/bold.R        BOLD: resumo por classe, soma sob nome + sinônimos
 R/genbank.R     NCBI: contagem incremental com cache, pausa e retry

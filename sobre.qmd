@@ -49,6 +49,11 @@ lista do grupo as traz (tartarugas marinhas, aves marinhas, cetáceos, sirênios
 - **Catálogo Taxonômico da Fauna do Brasil** ([CTFB/JBRJ](https://fauna.jbrj.gov.br), API REST
   aberta): sinônimos, ocorrência por UF (usada para aves, e para anfíbios sem UF na lista),
   endemismo e ano de descrição quando a lista não traz.
+- **Categoria nacional de ameaça:** Portaria MMA nº 1.704, de 16/06/2026 (Lista Nacional Oficial
+  das Espécies da Fauna Ameaçadas de Extinção, Anexo I), extraída do PDF publicado no DOU. Espécie
+  com só subespécies listadas aparece como "categoria (ssp.)". Quando a espécie não consta da
+  portaria, mantêm-se as categorias DD/NT/LC das avaliações citadas pelas listas (MMA 2022 para
+  anfíbios, MMA 2023 para mamíferos).
 - Mapa: malha de UFs do [IBGE](https://servicodados.ibge.gov.br/api/docs/malhas) (qualidade mínima).
 
 ## Situação de cada espécie

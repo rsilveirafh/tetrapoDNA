@@ -27,8 +27,8 @@ htl.html`<p><a class="btn btn-primary" href="${REPO}/issues/new?template=adote.y
 <a class="btn btn-outline-secondary" href="${REPO}/issues?q=label%3Aadotada" target="_blank">Ver adoções no GitHub</a></p>`
 ```
 
-Sem conta no GitHub? Escreva para o mantenedor (link no [repositório](https://github.com/rsilveirafh))
-que a adoção é registrada por ele.
+Sem conta no GitHub? Fale com o mantenedor pelo perfil [\@rsilveirafh](https://github.com/rsilveirafh):
+ele registra a adoção por você.
 
 ## Boas práticas
 
