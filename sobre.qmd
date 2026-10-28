@@ -1,0 +1,87 @@
+---
+title: "Fontes e método"
+format: html
+---
+
+{{< include _comum.qmd >}}
+
+## A pergunta
+
+Para cada espécie de **tetrápode do Brasil** (anfíbios, répteis, aves e mamíferos) nas listas
+oficiais das sociedades científicas: quantas sequências de DNA públicas existem no
+[BOLD Systems](https://boldsystems.org) e no [GenBank](https://www.ncbi.nlm.nih.gov/genbank/)? E
+quais espécies ainda **não têm nenhuma**? O recorte é de tetrápodes; peixes não entram.
+
+```{ojs}
+{
+  const n = conta(cobertura);
+  return md`Na última atualização (${status.atualizado_em}): **${fmtn(n.total)}** espécies,
+**${fmtn(n.com)}** com DNA público (${fmtpct(n.com / n.total)}), **${fmtn(n.sem)}** sem nenhum DNA
+encontrado e **${fmtn(n.verificar)}** a verificar.`;
+}
+```
+
+## Listas de espécies
+
+Uma lista de referência por grupo, todas convertidas para o mesmo esquema de colunas.
+
+```{ojs}
+md`| Grupo | Lista | Licença |
+|---|---|---|
+| Anfíbios | Segalla, M. et al. (2021). *List of Brazilian Amphibians*. Herpetologia Brasileira 10(1): 121-216. [doi:10.5281/zenodo.4716176](https://doi.org/10.5281/zenodo.4716176). UF, bioma e categoria MMA vêm do pacote [amphiBR](https://github.com/paulobarros/amphiBR) (P. Barros). | Lista CC-BY 4.0; pacote GPL ≥ 3 (só os dados são usados) |
+| Répteis | Entiauspe-Neto, O. M., Costa, H. C. & Guedes, T. B. [ReptiliaBR](https://github.com/omarentiauspe/ReptiliaBR) v0.4.0: lista e ocorrência por UF dos répteis do Brasil (SBH). Só ocorrências confirmadas ("X") entram no mapa. | MIT |
+| Aves | Pacheco, J. F. et al. (2021). *Annotated checklist of the birds of Brazil by the Brazilian Ornithological Records Committee*, 2ª ed. Ornithology Research 29: 94-105. Lista Primária. [doi:10.5281/zenodo.5138368](https://doi.org/10.5281/zenodo.5138368) | CC-BY 4.0 |
+| Mamíferos | Abreu, E. F. et al. *Lista de Mamíferos do Brasil* v2025-1. CT-SBMz. [doi:10.5281/zenodo.18378485](https://doi.org/10.5281/zenodo.18378485) | CC-BY 4.0 |
+
+A lista de anfíbios ainda é a de 2021; a troca pela **Lista de Anfíbios do Brasil 2026**
+(Drummond et al., Herpetologia Brasileira 15(2)) está prevista. Espécies marinhas entram quando a
+lista do grupo as traz (tartarugas marinhas, aves marinhas, cetáceos, sirênios): nenhum filtro manual.`
+```
+
+## Sequências
+
+- **BOLD Systems** (portal v5): uma consulta por classe ao endpoint público
+  `api/summary`, que devolve o número de registros públicos por nome de espécie; outra consulta
+  igual, restrita a material coletado no Brasil. Sem chave.
+- **GenBank** (NCBI E-utilities, `esearch` no banco `nuccore`): contagem de registros por
+  `"Gênero epíteto"[Organism]`. O filtro `[Organism]` usa a taxonomia do NCBI e já inclui os
+  sinônimos que o NCBI conhece. Os sinônimos do CTFB entram na mesma busca com `OR`.
+- **Catálogo Taxonômico da Fauna do Brasil** ([CTFB/JBRJ](https://fauna.jbrj.gov.br), API REST
+  aberta): sinônimos, ocorrência por UF (usada para aves, e para anfíbios sem UF na lista),
+  endemismo e ano de descrição quando a lista não traz.
+- Mapa: malha de UFs do [IBGE](https://servicodados.ibge.gov.br/api/docs/malhas) (qualidade mínima).
+
+## Situação de cada espécie
+
+| Situação | Critério |
+|---|---|
+| **com DNA** | ao menos um registro no BOLD ou no GenBank **sob o nome da lista** |
+| **a verificar** | sem DNA sob o nome da lista, mas: há sequências só sob nome alternativo (sinônimo ou nome aceito no CTFB); ou o nome não está no CTFB (não deu para conferir sinônimos); ou o nome da lista é sinônimo no CTFB; ou a espécie tem sinônimos conhecidos; ou o gênero tem 500 registros ou mais no GenBank |
+| **sem DNA** | nenhuma sequência pública sob o nome e os sinônimos conhecidos, e nenhum dos sinais acima |
+
+**Cuidado com a "falsa órfã".** Uma espécie pode parecer sem DNA porque o banco usa um nome antigo,
+um nome com erro ou uma identificação só até gênero ("*Gênero* sp."). Por isso o painel nunca afirma
+"não existe DNA": afirma que **não foi encontrado sob os nomes conferidos**. A coluna "Observação"
+diz o motivo de cada "a verificar" e quantos registros do gênero coletados no Brasil estão sem
+identificação no BOLD. Achou uma sequência que o painel não viu? Abra uma issue com o link.
+
+Faixas de registros no BOLD seguem o [iBOL Europe Gap List](https://species.iboleurope.org):
+0 / 1-2 / 3-9 / 10 ou mais. A ideia de ranquear lacunas vem de lá.
+
+## Atualização
+
+Um robô (GitHub Actions) roda toda semana: baixa as listas, consulta CTFB, BOLD e GenBank e grava
+os resultados em CSV no repositório. O histórico do git é o histórico dos dados. A consulta ao
+GenBank é incremental: espécies novas e as sem DNA são reconsultadas toda semana; as demais, a cada
+4 semanas.
+
+## Dados e código
+
+- [cobertura.csv](data/cobertura.csv): uma linha por espécie (contagens, situação, observação).
+- [historico.csv](data/historico.csv): totais por grupo a cada atualização.
+- [eventos.csv](data/eventos.csv): espécies que ganharam DNA, com a data.
+
+```{ojs}
+md`Código e dados no [GitHub](${REPO}). Código sob licença MIT; tabelas derivadas sob CC-BY 4.0
+(cite as listas originais e este painel).`
+```

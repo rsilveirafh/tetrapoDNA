@@ -1,0 +1,67 @@
+# Configuração do site. O NOME DO PROJETO fica só aqui (title, site-url,
+# repo-url): para renomear, troque estas linhas e o nome do repositório.
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - especies.qmd
+    - estados.qmd
+    - adote.qmd
+    - sobre.qmd
+  resources:
+    - data/cobertura.csv
+    - data/historico.csv
+    - data/eventos.csv
+    - data/adocoes.csv
+    - data/status.json
+    - data-raw/uf_ibge.geojson
+
+website:
+  title: "Lacuna de DNA"
+  description: "Quantas espécies de tetrápodes do Brasil (anfíbios, répteis, aves e mamíferos) ainda não têm nenhuma sequência de DNA pública no BOLD ou no GenBank? Atualizado toda semana."
+  site-url: "https://rsilveirafh.github.io/lacuna-dna-br/"
+  repo-url: "https://github.com/rsilveirafh/lacuna-dna-br"
+  repo-actions: [issue, source]
+  open-graph: true
+  twitter-card: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: Visão geral
+      - href: especies.qmd
+        text: Espécies sem DNA
+      - href: estados.qmd
+        text: Por estado
+      - href: adote.qmd
+        text: Adote uma espécie
+      - href: sobre.qmd
+        text: Fontes e método
+    right:
+      - icon: github
+        href: "https://github.com/rsilveirafh/lacuna-dna-br"
+        aria-label: Código no GitHub
+  page-footer:
+    left: "Dados: BOLD Systems, NCBI GenBank, CTFB/JBRJ e listas da SBH, CBRO e SBMz (ver Fontes)."
+    right: "Código MIT · Dados CC-BY 4.0"
+
+lang: pt-BR
+
+format:
+  html:
+    theme:
+      light: [cosmo, estilo.scss]
+      dark: [darkly, estilo.scss]
+    toc: false
+  dashboard:
+    theme:
+      light: [cosmo, estilo.scss]
+      dark: [darkly, estilo.scss]
+    nav-buttons:
+      - icon: github
+        href: "https://github.com/rsilveirafh/lacuna-dna-br"
+
+execute:
+  echo: false
+  warning: false
+  message: false

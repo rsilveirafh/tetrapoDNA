@@ -1,0 +1,84 @@
+---
+title: "Espécies sem DNA"
+format: dashboard
+---
+
+{{< include _comum.qmd >}}
+
+## {.sidebar}
+
+```{ojs}
+viewof grupo = Inputs.select(OPCOES_GRUPO, {label: "Grupo", value: "Todos"})
+viewof situacoes = Inputs.checkbox(SITUACOES, {label: "Situação", value: ["sem DNA", "a verificar"]})
+viewof uf = Inputs.select(["Todas", "AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"], {label: "Estado (UF)", value: "Todas"})
+```
+
+```{ojs}
+//| output: false
+familias = ["Todas", ...Array.from(new Set(filtra_grupo(cobertura, grupo).map(d => d.familia))).sort()]
+```
+
+```{ojs}
+viewof familia = Inputs.select(familias, {label: "Família", value: "Todas"})
+viewof extras = Inputs.checkbox(["só endêmicas do Brasil", "só ameaçadas (CR, EN, VU)"], {label: "Recorte"})
+viewof busca = Inputs.text({label: "Buscar", placeholder: "gênero, espécie, família..."})
+```
+
+```{ojs}
+md`Ordenadas por prioridade: **ameaçadas** (CR, EN, VU) > **DD** > **endêmicas** > **descritas há mais tempo**.
+
+Clique em **adotar** para abrir um pedido no GitHub: diga que vai sequenciar a espécie (de preferência a partir de tecido já depositado em coleção). Ver [Adote uma espécie](adote.html).
+
+<span class="nota-pequena">Sem DNA = nenhuma sequência pública sob o nome da lista e os sinônimos conhecidos do CTFB. Não é prova de ausência: confira a coluna "Observação".</span>
+
+[Baixar a tabela completa (CSV)](data/cobertura.csv)`
+```
+
+## Column
+
+```{ojs}
+//| output: false
+filtradas = {
+  const q = busca.trim().toLowerCase();
+  return filtra_grupo(cobertura, grupo)
+    .filter(d => situacoes.includes(d.situacao))
+    .filter(d => uf === "Todas" || d.ufs_lista.includes(uf))
+    .filter(d => familia === "Todas" || d.familia === familia)
+    .filter(d => !extras.includes("só endêmicas do Brasil") || d.endemica)
+    .filter(d => !extras.includes("só ameaçadas (CR, EN, VU)") || d.ameacada)
+    .filter(d => !q || `${d.especie} ${d.familia} ${d.ordem}`.toLowerCase().includes(q))
+    .sort((a, b) => d3.ascending(a.prioridade, b.prioridade) ||
+                    d3.ascending(a.ano_descricao ?? 9999, b.ano_descricao ?? 9999) ||
+                    d3.ascending(a.especie, b.especie));
+}
+```
+
+```{ojs}
+//| title: "Espécies"
+{
+  const tab = Inputs.table(filtradas, {
+    columns: ["especie", "situacao", "grupo_rotulo", "familia", "ano_descricao",
+              "categoria_ameaca", "endemica", "n_bold", "n_genbank", "ufs", "observacao", "adocao"],
+    header: {especie: "Espécie", situacao: "Situação", grupo_rotulo: "Grupo", familia: "Família",
+             ano_descricao: "Descrita em", categoria_ameaca: "Ameaça", endemica: "Endêmica",
+             n_bold: "BOLD", n_genbank: "GenBank", ufs: "UFs", observacao: "Observação",
+             adocao: "Adoção"},
+    format: {
+      especie: d => htl.html`<em>${d}</em>`,
+      situacao: selo_situacao,
+      ano_descricao: d => d ? String(d) : "",
+      endemica: d => d ? "sim" : "",
+      n_bold: d => fmtn(d),
+      n_genbank: d => d == null ? "pendente" : fmtn(d),
+      ufs: d => d ? String(d).replaceAll(";", " ") : "sem dado",
+      observacao: d => htl.html`<span class="nota-pequena">${d ?? ""}</span>`,
+      adocao: (d, i, dados) => d
+        ? htl.html`<span class="selo">${d}</span>`
+        : htl.html`<a class="btn-adote" href="${link_adote(dados[i].especie)}" target="_blank">adotar</a>`
+    },
+    width: {especie: 210, observacao: 380, ufs: 160},
+    rows: 30, layout: "fixed", select: false
+  });
+  return htl.html`<div><p><strong>${fmtn(filtradas.length)}</strong> espécies com estes filtros.</p>${tab}</div>`;
+}
+```

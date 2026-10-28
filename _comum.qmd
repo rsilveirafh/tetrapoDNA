@@ -1,0 +1,70 @@
+```{ojs}
+//| output: false
+// Dados e utilidades compartilhados por todas as páginas (incluído com {{< include >}}).
+cobertura_bruta = FileAttachment("data/cobertura.csv").csv({typed: true})
+adocoes = FileAttachment("data/adocoes.csv").csv({typed: true})
+status = FileAttachment("data/status.json").json()
+
+REPO = "{{< meta website.repo-url >}}"
+
+ROTULO_GRUPO = new Map([
+  ["anfibios", "Anfíbios"], ["repteis", "Répteis"],
+  ["aves", "Aves"], ["mamiferos", "Mamíferos"]
+])
+OPCOES_GRUPO = ["Todos", ...ROTULO_GRUPO.values()]
+GRUPO_POR_ROTULO = new Map([...ROTULO_GRUPO].map(([k, v]) => [v, k]))
+
+// Cores de situação (paleta de status: bom / atenção / crítico) e de grupo.
+SITUACOES = ["com DNA", "a verificar", "sem DNA"]
+COR_SITUACAO = ["#0ca30c", "#fab219", "#d03b3b"]
+COR_GRUPO = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"]
+
+AMEACADAS = new Set(["CR", "EN", "VU"])
+
+cobertura = {
+  const adot = new Map(adocoes.map(a => [a.especie, a]));
+  return cobertura_bruta.map(d => {
+    const a = adot.get(d.especie);
+    const ufs = d.ufs ? String(d.ufs).split(";") : [];
+    const cat = d.categoria_ameaca ?? "";
+    return {
+      ...d,
+      grupo_rotulo: ROTULO_GRUPO.get(d.grupo),
+      ufs_lista: ufs,
+      endemica: d.endemica_br === true || d.endemica_br === "TRUE",
+      ameacada: AMEACADAS.has(cat),
+      adocao: a ? a.situacao : null,
+      adotada_por: a ? a.instituicao : null,
+      // prioridade: ameaçada > DD > endêmica > descrita há mais tempo
+      prioridade: (AMEACADAS.has(cat) ? 0 : cat === "DD" ? 1 : 2) * 10 +
+                  (d.endemica_br === true || d.endemica_br === "TRUE" ? 0 : 1)
+    };
+  });
+}
+
+filtra_grupo = (dados, rotulo) =>
+  rotulo === "Todos" ? dados : dados.filter(d => d.grupo === GRUPO_POR_ROTULO.get(rotulo))
+
+fmt = d3.format(",d")
+fmtpct = d3.format(".0%")
+fmtn = n => n == null ? "" : fmt(n).replace(/,/g, ".")
+
+conta = dados => {
+  const c = d3.rollup(dados, v => v.length, d => d.situacao);
+  return {
+    total: dados.length,
+    com: c.get("com DNA") ?? 0,
+    verificar: c.get("a verificar") ?? 0,
+    sem: c.get("sem DNA") ?? 0
+  };
+}
+
+link_adote = especie =>
+  `${REPO}/issues/new?template=adote.yml&title=${encodeURIComponent("Adoção: " + especie)}&especie=${encodeURIComponent(especie)}`
+
+selo_situacao = s => {
+  const cls = s === "com DNA" ? "com" : s === "sem DNA" ? "sem" : "verificar";
+  const ico = s === "com DNA" ? "✓" : s === "sem DNA" ? "✕" : "?";
+  return htl.html`<span class="situacao ${cls}">${ico} ${s}</span>`;
+}
+```

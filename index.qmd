@@ -1,0 +1,163 @@
+---
+title: "Visão geral"
+format: dashboard
+---
+
+{{< include _comum.qmd >}}
+
+## {.sidebar}
+
+```{ojs}
+viewof grupo = Inputs.radio(OPCOES_GRUPO, {label: "Grupo", value: "Todos"})
+```
+
+```{ojs}
+md`**Pergunta:** quantas espécies de tetrápodes do Brasil ainda não têm nenhuma sequência de DNA pública?
+
+Uma espécie conta como **com DNA** quando há ao menos um registro público no [BOLD](https://boldsystems.org) ou no [GenBank](https://www.ncbi.nlm.nih.gov/nuccore) sob o nome da lista oficial do grupo.
+
+**A verificar** = aparece sem DNA, mas há motivo para desconfiar do nome (sinônimo, nome ausente do CTFB, gênero muito sequenciado). Veja [Fontes e método](sobre.html).
+
+<span class="nota-pequena">Atualizado em ${status.atualizado_em}. Atualização automática semanal.</span>`
+```
+
+## Column
+
+```{ojs}
+//| output: false
+sel = filtra_grupo(cobertura, grupo)
+n = conta(sel)
+txt_total = fmtn(n.total)
+txt_com = `${fmtn(n.com)} (${fmtpct(n.com / n.total)})`
+txt_verificar = `${fmtn(n.verificar)} (${fmtpct(n.verificar / n.total)})`
+txt_sem = `${fmtn(n.sem)} (${fmtpct(n.sem / n.total)})`
+```
+
+### Row {height=24%}
+
+::: {.valuebox .vb-claro icon="list-ul" color="#2a78d6"}
+Espécies na lista
+
+${txt_total}
+:::
+
+::: {.valuebox .vb-claro icon="check2-circle" color="#0a7d0a"}
+Com DNA público
+
+${txt_com}
+:::
+
+::: {.valuebox icon="question-circle" color="#fab219"}
+A verificar
+
+${txt_verificar}
+:::
+
+::: {.valuebox .vb-claro icon="x-circle" color="#d03b3b"}
+Sem nenhum DNA encontrado
+
+${txt_sem}
+:::
+
+### Row {height=38%}
+
+```{ojs}
+//| title: "Situação por grupo"
+{
+  const linhas = [];
+  for (const [g, rot] of ROTULO_GRUPO) {
+    const c = conta(cobertura.filter(d => d.grupo === g));
+    for (const [s, v] of [["com DNA", c.com], ["a verificar", c.verificar], ["sem DNA", c.sem]])
+      linhas.push({grupo: rot, situacao: s, n: v, p: v / c.total});
+  }
+  return Plot.plot({
+    marginLeft: 80, height: 210, width: 640, style: {fontSize: "13px"},
+    x: {percent: true, label: "% das espécies →", grid: true},
+    y: {label: null, domain: [...ROTULO_GRUPO.values()]},
+    color: {domain: SITUACOES, range: COR_SITUACAO, legend: true},
+    marks: [
+      Plot.barX(linhas, Plot.stackX({x: "p", y: "grupo", fill: "situacao", order: SITUACOES,
+        inset: 1, tip: true, title: d => `${d.grupo} · ${d.situacao}: ${fmtn(d.n)} (${fmtpct(d.p)})`})),
+      Plot.text(linhas.filter(d => d.p > 0.07), Plot.stackX({x: "p", y: "grupo", order: SITUACOES,
+        z: "situacao", text: d => fmtpct(d.p),
+        fill: d => d.situacao === "a verificar" ? "#0b0b0b" : "white"}))
+    ]
+  });
+}
+```
+
+```{ojs}
+//| title: "Registros no BOLD por espécie (faixas do iBOL Gap List)"
+{
+  const faixas = ["0", "1-2", "3-9", "10+"];
+  const c = d3.rollup(sel, v => v.length, d => String(d.faixa_bold));
+  const dados = faixas.map(f => ({faixa: f, n: c.get(f) ?? 0}));
+  return Plot.plot({
+    height: 240, width: 520, marginLeft: 50, style: {fontSize: "13px"},
+    x: {domain: faixas, label: "registros no BOLD"},
+    y: {label: "espécies", grid: true},
+    marks: [
+      Plot.barY(dados, {x: "faixa", y: "n", fill: "#2a78d6", rx: 4, inset: 2, tip: true}),
+      Plot.text(dados, {x: "faixa", y: "n", text: d => fmtn(d.n), dy: -8}),
+      Plot.ruleY([0])
+    ]
+  });
+}
+```
+
+### Row {height=42%}
+
+```{ojs}
+//| title: "Famílias com mais espécies sem DNA"
+{
+  const fam = d3.rollups(sel.filter(d => d.situacao !== "com DNA"),
+    v => ({sem: v.filter(d => d.situacao === "sem DNA").length,
+           verificar: v.filter(d => d.situacao === "a verificar").length, total: v.length}),
+    d => d.familia)
+    .map(([familia, v]) => ({familia, ...v}))
+    .sort((a, b) => d3.descending(a.total, b.total)).slice(0, 15);
+  const linhas = fam.flatMap(f => [
+    {familia: f.familia, situacao: "sem DNA", n: f.sem},
+    {familia: f.familia, situacao: "a verificar", n: f.verificar}]);
+  return Plot.plot({
+    marginLeft: 130, height: Math.max(200, fam.length * 22), width: 560, style: {fontSize: "13px"},
+    x: {label: "espécies →", grid: true},
+    y: {label: null, domain: fam.map(d => d.familia)},
+    color: {domain: ["a verificar", "sem DNA"], range: ["#fab219", "#d03b3b"], legend: true},
+    marks: [
+      Plot.barX(linhas, Plot.stackX({x: "n", y: "familia", fill: "situacao",
+        order: ["sem DNA", "a verificar"], inset: 1, tip: true})),
+      Plot.ruleX([0])
+    ]
+  });
+}
+```
+
+```{ojs}
+//| title: "Descritas há mais tempo e ainda sem DNA"
+{
+  const velhas = sel.filter(d => d.situacao === "sem DNA" && d.ano_descricao)
+    .sort((a, b) => d3.ascending(a.ano_descricao, b.ano_descricao)).slice(0, 25);
+  return Inputs.table(velhas, {
+    columns: ["especie", "grupo_rotulo", "familia", "ano_descricao", "categoria_ameaca"],
+    header: {especie: "Espécie", grupo_rotulo: "Grupo", familia: "Família",
+             ano_descricao: "Descrita em", categoria_ameaca: "Ameaça"},
+    format: {especie: d => htl.html`<a href="${link_adote(d)}" target="_blank" title="Quero sequenciar"><em>${d}</em></a>`,
+             ano_descricao: d => String(d)},
+    rows: 25, layout: "auto", select: false
+  });
+}
+```
+
+```{ojs}
+//| title: "Novidades: espécies que ganharam DNA"
+{
+  const ev = await FileAttachment("data/eventos.csv").csv({typed: true});
+  if (!ev.length) return md`Nenhuma ainda. A cada atualização semanal, toda espécie que sair da lista "sem DNA" aparece aqui.`;
+  return Inputs.table(ev.reverse(), {
+    columns: ["data", "especie", "grupo", "n_bold", "n_genbank"],
+    header: {data: "Data", especie: "Espécie", grupo: "Grupo", n_bold: "BOLD", n_genbank: "GenBank"},
+    rows: 10, select: false
+  });
+}
+```
