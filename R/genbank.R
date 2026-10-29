@@ -52,18 +52,24 @@ atualiza_genbank <- function(especies, destino = "data/genbank.csv",
     select(especie, termo, nomes)
   cache <- ler_csv(destino, col_types = cols(n_genbank = col_integer(),
                                               n_genbank_nome = col_integer(),
+                                              n_genbank_comb = col_integer(),
+                                              n_genbank_texto = col_integer(),
                                               .default = col_character()))
+  if (!is.null(cache) && !"n_genbank_comb" %in% names(cache)) {
+    cache$n_genbank_comb <- ifelse(cache$n_genbank == cache$n_genbank_nome, cache$n_genbank_nome, NA)
+  }
   if (is.null(cache)) {
     cache <- tibble(especie = character(), termo = character(), n_genbank = integer(),
-                    n_genbank_nome = integer(), consultado_em = character())
+                    n_genbank_nome = integer(), n_genbank_comb = integer(),
+                    n_genbank_texto = integer(), consultado_em = character())
   }
   fila <- alvo |>
     left_join(select(cache, especie, termo_ant = termo, n_ant = n_genbank,
-                     data_ant = consultado_em), by = "especie") |>
+                     comb_ant = n_genbank_comb, data_ant = consultado_em), by = "especie") |>
     mutate(
       idade = as.numeric(as.Date(hoje()) - as.Date(data_ant)),
       prioridade = case_when(
-        is.na(n_ant) | is.na(termo_ant) | termo_ant != termo ~ 1,  # nova, falhou ou mudou
+        is.na(n_ant) | is.na(comb_ant) | is.na(termo_ant) | termo_ant != termo ~ 1,  # nova, falhou ou mudou
         n_ant == 0 ~ 2,                                          # órfã: rechecar sempre
         idade >= dias_validade ~ 3,                              # vencida
         TRUE ~ 9
@@ -90,8 +96,17 @@ atualiza_genbank <- function(especies, destino = "data/genbank.csv",
     nomes <- fila$nomes[[i]]
     n <- ncbi_conta(fila$termo[i])
     n_nome <- if (length(nomes) > 1 && isTRUE(n > 0)) ncbi_conta(termo_ncbi(nomes[1])) else n
+    # mesma espécie em outra combinação (transferência de gênero)
+    comb <- c(nomes[1], mesmo_epiteto(nomes[1], nomes[-1]))
+    n_comb <- if (length(comb) > 1 && isTRUE(n > n_nome)) {
+      if (length(comb) == length(nomes)) n else ncbi_conta(termo_ncbi(comb))
+    } else n_nome
+    # sem nada no campo Organism: o nome aparece em outro campo (nota,
+    # subespécie, identificação antiga)? Sinal de possível falsa órfã.
+    n_texto <- if (isTRUE(n == 0)) ncbi_conta(paste0("\"", nomes[1], "\"")) else NA_integer_
     novos[[i]] <- tibble(especie = fila$especie[i], termo = fila$termo[i],
-                         n_genbank = n, n_genbank_nome = n_nome, consultado_em = hoje())
+                         n_genbank = n, n_genbank_nome = n_nome, n_genbank_comb = n_comb,
+                         n_genbank_texto = n_texto, consultado_em = hoje())
     if (i %% salvar_cada == 0) {
       cache_parcial <- grava(i)
       msg("  ", i, "/", nrow(fila))

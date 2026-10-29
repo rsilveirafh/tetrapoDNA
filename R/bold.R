@@ -63,6 +63,7 @@ cobre_bold <- function(especies, bold) {
     group_by(classe, especie) |>
     summarise(
       n_bold_nome = sum(n_bold[nome == especie]),
+      n_bold_comb = sum(n_bold[nome == especie | nome %in% mesmo_epiteto(first(especie), nome)]),
       n_bold = sum(n_bold), n_bold_br = sum(n_bold_br),
       bold_sinonimos_com_dado = paste(nome[nome != especie & n_bold > 0], collapse = ";"),
       .groups = "drop"

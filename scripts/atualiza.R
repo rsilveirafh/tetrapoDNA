@@ -8,7 +8,7 @@
 #
 # Variáveis de ambiente: NCBI_API_KEY (opcional, 10 req/s), NCBI_EMAIL (opcional).
 
-for (f in c("utils", "listas", "ameaca", "ctfb", "bold", "genbank", "junta")) {
+for (f in c("utils", "listas", "ameaca", "ctfb", "gbif", "bold", "genbank", "junta")) {
   source(file.path("R", paste0(f, ".R")), encoding = "UTF-8")
 }
 
@@ -40,12 +40,26 @@ if (!is.null(ctfb)) {
   especies <- mutate(especies, ctfb_situacao = "ausente", id_ctfb = NA_character_,
                      nome_aceito_ctfb = NA_character_, sinonimos = NA_character_)
 }
-gravar_csv(select(especies, -any_of("nome_aceito_ctfb")), "data/especies.csv")
-msg("Espécies: ", nrow(especies))
 
 # 3. BOLD ------------------------------------------------------------------------
 bold <- atualiza_bold(GRUPOS$classe)
 if (isTRUE(attr(bold, "aviso"))) avisos <- c(avisos, "BOLD: usando o último resultado salvo")
+
+# 3b. GBIF: sinônimos das candidatas a órfã (sem BOLD sob o nome e sem GenBank
+#     sob o nome no último resultado salvo) -------------------------------------
+gb_ant <- ler_csv("data/genbank.csv", col_types = cols(.default = col_character()))
+sem_bold <- especies |>
+  left_join(select(bold, classe, especie = nome, nb = n_bold), by = c("classe", "especie")) |>
+  filter(coalesce(nb, 0L) == 0)
+candidatas <- if (is.null(gb_ant)) sem_bold else
+  filter(sem_bold, !especie %in% gb_ant$especie[as.integer(gb_ant$n_genbank_nome) > 0])
+gbif <- tryCatch(atualiza_gbif(select(candidatas, especie, classe, familia)), error = function(e) {
+  avisos <<- c(avisos, paste("GBIF indisponível:", conditionMessage(e)))
+  ler_csv("data/gbif_sinonimos.csv", col_types = cols(.default = col_character()))
+})
+if (!is.null(gbif)) especies <- soma_sinonimos_gbif(especies, gbif)
+gravar_csv(select(especies, -any_of("nome_aceito_ctfb")), "data/especies.csv")
+msg("Espécies: ", nrow(especies))
 bold_cob <- cobre_bold(especies, bold)
 
 # 4. GenBank (incremental) --------------------------------------------------------

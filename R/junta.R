@@ -12,20 +12,28 @@ faixa_gaplist <- function(n) {
 monta_cobertura <- function(especies, bold_cob, genbank, generos) {
   x <- especies |>
     left_join(bold_cob, by = c("classe", "especie")) |>
-    left_join(select(genbank, especie, n_genbank, n_genbank_nome,
-                     genbank_consultado_em = consultado_em), by = "especie") |>
+    left_join(select(genbank, especie, n_genbank, n_genbank_nome, n_genbank_comb,
+                     any_of("n_genbank_texto"), genbank_consultado_em = consultado_em),
+              by = "especie") |>
     left_join(select(generos, genero, n_genbank_genero), by = "genero")
+  if (!"gbif_situacao" %in% names(x)) x$gbif_situacao <- NA_character_
+  if (!"n_genbank_texto" %in% names(x)) x$n_genbank_texto <- NA_integer_
 
   x |>
     mutate(
-      dna_nome = n_bold_nome > 0 | coalesce(n_genbank_nome, 0L) > 0,
+      # com DNA = sob o nome da lista ou sob outra combinação do mesmo epíteto
+      dna_nome = n_bold_comb > 0 | coalesce(n_genbank_comb, 0L) > 0,
+      so_comb = dna_nome & !(n_bold_nome > 0 | coalesce(n_genbank_nome, 0L) > 0),
       dna_qualquer = n_bold > 0 | coalesce(n_genbank, 0L) > 0,
       motivos = pmap_chr(
         list(dna_nome, dna_qualquer, ctfb_situacao, sinonimos, n_genbank_genero,
-             bold_br_genero_sem_id, bold_sinonimos_com_dado, n_genbank),
-        function(dn, dq, cs, sn, gg, gs, bs, ng) {
+             bold_br_genero_sem_id, bold_sinonimos_com_dado, n_genbank, gbif_situacao,
+             n_genbank_texto),
+        function(dn, dq, cs, sn, gg, gs, bs, ng, gb, nt) {
           if (isTRUE(dn)) return(NA_character_)
           m <- character()
+          if (isTRUE(nt > 0)) m <- c(m, paste0("o nome aparece em ", nt, " registro(s) do GenBank fora do campo Organism"))
+          if (identical(gb, "nao_reconhecido")) m <- c(m, "nome não reconhecido no GBIF (sinônimos não conferidos)")
           if (isTRUE(dq)) m <- c(m, paste0("há sequências só sob nome alternativo",
                                            if (!is.na(bs)) paste0(" (BOLD: ", gsub(";", ", ", bs), ")")))
           if (is.na(ng)) m <- c(m, "GenBank ainda não consultado")
@@ -46,6 +54,9 @@ monta_cobertura <- function(especies, bold_cob, genbank, generos) {
       ),
       observacao = case_when(
         situacao == "sem DNA" ~ "nenhuma sequência pública encontrada sob este nome e os sinônimos conhecidos",
+        so_comb ~ paste0("DNA só sob outra combinação do mesmo epíteto (",
+                         map2_chr(especie, sinonimos, ~ paste(mesmo_epiteto(.x, strsplit(coalesce(.y, ""), ";")[[1]]), collapse = ", ")),
+                         ")"),
         TRUE ~ motivos
       ),
       observacao = ifelse(is.na(nota_bold), observacao,
@@ -56,8 +67,8 @@ monta_cobertura <- function(especies, bold_cob, genbank, generos) {
     select(grupo, classe, ordem, familia, genero, especie, autoria, ano_descricao,
            endemica_br, categoria_ameaca, fonte_ameaca, ufs, uf_fonte, biomas,
            situacao, observacao, n_bold, n_bold_br, n_bold_nome, n_genbank,
-           n_genbank_nome, faixa_bold, n_genbank_genero, bold_br_genero_sem_id,
-           sinonimos, ctfb_situacao, id_ctfb, nota_lista, versao_lista,
+           n_genbank_nome, n_genbank_texto, faixa_bold, n_genbank_genero, bold_br_genero_sem_id,
+           sinonimos, ctfb_situacao, gbif_situacao, id_ctfb, nota_lista, versao_lista,
            genbank_consultado_em, atualizado_em) |>
     arrange(grupo, familia, especie)
 }
