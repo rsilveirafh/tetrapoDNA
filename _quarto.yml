@@ -18,10 +18,10 @@ project:
     - data-raw/uf_ibge.geojson
 
 website:
-  title: "Lacuna de DNA"
+  title: "tetrapoDNA"
   description: "Quantas espécies de tetrápodes do Brasil (anfíbios, répteis, aves e mamíferos) ainda não têm nenhuma sequência de DNA pública no BOLD ou no GenBank? Atualizado toda semana."
-  site-url: "https://rsilveirafh.github.io/lacuna-dna-br/"
-  repo-url: "https://github.com/rsilveirafh/lacuna-dna-br"
+  site-url: "https://rsilveirafh.github.io/tetrapoDNA/"
+  repo-url: "https://github.com/rsilveirafh/tetrapoDNA"
   repo-actions: [issue, source]
   open-graph: true
   twitter-card: true
@@ -39,7 +39,7 @@ website:
         text: Fontes e método
     right:
       - icon: github
-        href: "https://github.com/rsilveirafh/lacuna-dna-br"
+        href: "https://github.com/rsilveirafh/tetrapoDNA"
         aria-label: Código no GitHub
   page-footer:
     left: "Dados: BOLD Systems, NCBI GenBank, CTFB/JBRJ e listas da SBH, CBRO e SBMz (ver Fontes)."
@@ -59,7 +59,7 @@ format:
       dark: [darkly, estilo.scss]
     nav-buttons:
       - icon: github
-        href: "https://github.com/rsilveirafh/lacuna-dna-br"
+        href: "https://github.com/rsilveirafh/tetrapoDNA"
 
 execute:
   echo: false

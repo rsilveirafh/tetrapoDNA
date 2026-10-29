@@ -1,6 +1,4 @@
-# Lacuna de DNA dos tetrápodes do Brasil
-
-> Nome provisório. Título, URL do site e do repositório ficam centralizados em `_quarto.yml`.
+# tetrapoDNA: a lacuna de DNA dos tetrápodes do Brasil
 
 Painel que responde a uma pergunta simples: **quais espécies de anfíbios, répteis, aves e mamíferos
 do Brasil ainda não têm nenhuma sequência de DNA pública?** Para cada espécie das listas oficiais
