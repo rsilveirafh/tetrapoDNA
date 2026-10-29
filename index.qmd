@@ -14,7 +14,7 @@ viewof grupo = Inputs.radio(OPCOES_GRUPO, {label: "Grupo", value: "Todos"})
 ```{ojs}
 md`**Pergunta:** quantas espécies de tetrápodes do Brasil ainda não têm nenhuma sequência de DNA pública?
 
-Uma espécie conta como **com DNA** quando há ao menos um registro público no [BOLD](https://boldsystems.org) ou no [GenBank](https://www.ncbi.nlm.nih.gov/nuccore) sob o nome da lista oficial do grupo.
+Uma espécie conta como **com DNA** quando há ao menos um registro público no [BOLD](https://boldsystems.org) ou no [GenBank](https://www.ncbi.nlm.nih.gov/nuccore) sob o nome da lista oficial do grupo (ou sob combinação antiga do mesmo epíteto).
 
 **A verificar** = aparece sem DNA, mas há motivo para desconfiar do nome (sinônimo, nome ausente do CTFB, gênero muito sequenciado). Veja [Fontes e método](sobre.html).
 
@@ -139,7 +139,7 @@ ${txt_sem}
   const velhas = sel.filter(d => d.situacao === "sem DNA" && d.ano_descricao)
     .sort((a, b) => d3.ascending(a.ano_descricao, b.ano_descricao)).slice(0, 25);
   return Inputs.table(velhas, {
-    columns: ["especie", "grupo_rotulo", "familia", "ano_descricao", "categoria_ameaca"],
+    columns: ["especie", "grupo_rotulo", "ano_descricao", "categoria_ameaca"],
     header: {especie: "Espécie", grupo_rotulo: "Grupo", familia: "Família",
              ano_descricao: "Descrita em", categoria_ameaca: "Ameaça"},
     format: {especie: d => htl.html`<a href="${link_adote(d)}" target="_blank" title="Quero sequenciar"><em>${d}</em></a>`,

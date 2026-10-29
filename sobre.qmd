@@ -49,6 +49,10 @@ lista do grupo as traz (tartarugas marinhas, aves marinhas, cetáceos, sirênios
 - **Catálogo Taxonômico da Fauna do Brasil** ([CTFB/JBRJ](https://fauna.jbrj.gov.br), API REST
   aberta): sinônimos, ocorrência por UF (usada para aves, e para anfíbios sem UF na lista),
   endemismo e ano de descrição quando a lista não traz.
+- **GBIF Backbone** ([api.gbif.org](https://techdocs.gbif.org/en/openapi/v1/species)): para as
+  espécies sem DNA sob o nome da lista, o nome aceito no GBIF e os sinônimos dele (pega
+  transferências de gênero, como *Heterospizias meridionalis* / *Buteogallus meridionalis*). Se o
+  GBIF não reconhece o nome, nada é inventado: a espécie fica "a verificar".
 - **Categoria nacional de ameaça:** Portaria MMA nº 1.704, de 16/06/2026 (Lista Nacional Oficial
   das Espécies da Fauna Ameaçadas de Extinção, Anexo I), extraída do PDF publicado no DOU. Espécie
   com só subespécies listadas aparece como "categoria (ssp.)". Quando a espécie não consta da
@@ -60,8 +64,8 @@ lista do grupo as traz (tartarugas marinhas, aves marinhas, cetáceos, sirênios
 
 | Situação | Critério |
 |---|---|
-| **com DNA** | ao menos um registro no BOLD ou no GenBank **sob o nome da lista** |
-| **a verificar** | sem DNA sob o nome da lista, mas: há sequências só sob nome alternativo (sinônimo ou nome aceito no CTFB); ou o nome não está no CTFB (não deu para conferir sinônimos); ou o nome da lista é sinônimo no CTFB; ou a espécie tem sinônimos conhecidos; ou o gênero tem 500 registros ou mais no GenBank |
+| **com DNA** | ao menos um registro no BOLD ou no GenBank **sob o nome da lista** ou sob outra combinação do **mesmo epíteto** (transferência de gênero; a observação diz qual) |
+| **a verificar** | sem DNA sob o nome da lista, mas: há sequências só sob nome alternativo com outro epíteto (sinônimo, nome aceito no CTFB ou no GBIF; pode ser desmembramento ou agrupamento de espécies); ou o nome não está no CTFB ou não é reconhecido pelo GBIF (não deu para conferir sinônimos); ou o nome da lista é sinônimo no CTFB; ou a espécie tem sinônimos conhecidos; ou o nome aparece no GenBank fora do campo Organism (nota, subespécie, identificação antiga); ou o gênero tem 500 registros ou mais no GenBank |
 | **sem DNA** | nenhuma sequência pública sob o nome e os sinônimos conhecidos, e nenhum dos sinais acima |
 
 **Cuidado com a "falsa órfã".** Uma espécie pode parecer sem DNA porque o banco usa um nome antigo,

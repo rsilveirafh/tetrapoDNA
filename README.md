@@ -27,8 +27,8 @@ Atualização automática semanal (GitHub Actions); site estático no GitHub Pag
 
 | Situação | Critério |
 |---|---|
-| com DNA | ao menos um registro no BOLD ou no GenBank sob o nome da lista |
-| a verificar | sem DNA sob o nome da lista, mas há motivo para desconfiar do nome: sequências só sob sinônimo/nome aceito no CTFB; nome ausente do CTFB; nome da lista é sinônimo no CTFB; sinônimos conhecidos; gênero com ≥ 500 registros no GenBank |
+| com DNA | ao menos um registro no BOLD ou no GenBank sob o nome da lista ou sob outra combinação do mesmo epíteto (transferência de gênero) |
+| a verificar | sem DNA sob o nome da lista, mas há motivo para desconfiar do nome: sequências só sob sinônimo/nome aceito no CTFB; nome ausente do CTFB ou não reconhecido pelo GBIF; nome da lista é sinônimo no CTFB; sinônimos conhecidos; nome aparece no GenBank fora do campo Organism; gênero com ≥ 500 registros no GenBank |
 | sem DNA | nenhuma sequência pública sob o nome e os sinônimos conhecidos, e nenhum sinal acima |
 
 O painel nunca afirma "não existe DNA" (o risco da **falsa órfã**: o banco usa um nome antigo).
@@ -54,6 +54,8 @@ Além das listas:
 - **Portaria MMA nº 1.704/2026** (Lista Nacional Oficial das Espécies da Fauna Ameaçadas de Extinção,
   Anexo I): categoria nacional de ameaça. Extraída do PDF uma vez por `data-raw/mma_portaria_1704_2026.R`
   (precisa de `pdftools`); o pipeline lê o CSV versionado.
+- **GBIF Backbone** (`api.gbif.org/v1/species/match` e `/synonyms`): sinônimos das candidatas a órfã
+  (o CTFB quase não tem sinônimos de aves e répteis). Cache de 90 dias em `data/gbif_sinonimos.csv`.
 - **IBGE**, malha de UFs (API de malhas, qualidade mínima) para o mapa.
 
 ## Estrutura
@@ -62,6 +64,7 @@ Além das listas:
 R/listas.R      uma função por grupo -> esquema comum (troque a fonte de um grupo aqui)
 R/ameaca.R      categoria nacional (Portaria MMA 1.704/2026)
 R/ctfb.R        CTFB: sinônimos, UF, endemismo
+R/gbif.R        GBIF: sinônimos das candidatas a órfã
 R/bold.R        BOLD: resumo por classe, soma sob nome + sinônimos
 R/genbank.R     NCBI: contagem incremental com cache, pausa e retry
 R/junta.R       situação, observação, histórico e eventos

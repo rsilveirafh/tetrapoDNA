@@ -106,10 +106,10 @@ geo = {
 ```{ojs}
 //| title: "Tabela por estado"
 Inputs.table(por_uf.slice().sort((a, b) => d3.descending(valor(a), valor(b))), {
-  columns: ["nome", "total", "com", "verificar", "sem", "pct"],
+  columns: ["nome", "total", "verificar", "sem", "pct"],
   header: {nome: "Estado", total: "Espécies", com: "Com DNA", verificar: "A verificar",
            sem: com_verificar ? "Sem DNA + a verificar" : "Sem DNA", pct: "% sem DNA"},
   format: {total: fmtn, com: fmtn, verificar: fmtn, sem: fmtn, pct: fmtpct},
-  rows: 27, layout: "auto", select: false
+  width: {nome: 150}, rows: 27, layout: "auto", select: false
 })
 ```
