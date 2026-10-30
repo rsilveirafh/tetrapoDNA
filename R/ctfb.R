@@ -100,9 +100,10 @@ enriquece_ctfb <- function(especies, ctfb) {
     left_join(info, by = c("id_ctfb" = "taxonID")) |>
     left_join(sin_lista, by = c("id_ctfb" = "acceptedNameUsageID")) |>
     mutate(
-      # nomes alternativos = nome aceito no CTFB (se diferente) + sinônimos
-      sinonimos = pmap_chr(list(especie, nome_aceito_ctfb, sinonimos_ctfb), function(e, a, s) {
-        n <- unique(c(a, unlist(strsplit(coalesce(s, ""), ";"))))
+      # nomes alternativos = os da própria lista + nome aceito no CTFB (se
+      # diferente) + sinônimos do CTFB
+      sinonimos = pmap_chr(list(especie, nome_aceito_ctfb, sinonimos_ctfb, sinonimos_lista), function(e, a, s, l) {
+        n <- unique(c(unlist(strsplit(coalesce(l, ""), ";")), a, unlist(strsplit(coalesce(s, ""), ";"))))
         n <- setdiff(n[!is.na(n) & nzchar(n)], e)
         n <- n[str_detect(n, "^[A-Z][a-z-]+ [a-z-]+$")]
         if (length(n)) paste(n, collapse = ";") else NA_character_

@@ -14,7 +14,7 @@ viewof com_verificar = Inputs.toggle({label: "Somar \"a verificar\" às sem DNA"
 ```
 
 ```{ojs}
-md`Uma espécie entra em todos os estados onde ocorre. Ocorrência por UF: listas de anfíbios (MMA/amphiBR), répteis (ReptiliaBR) e mamíferos (SBMz); para aves, o CTFB.
+md`Uma espécie entra em todos os estados onde ocorre. Ocorrência por UF: listas de anfíbios (amphiBR, pelo nome de 2021; espécies novas pelo CTFB), répteis (ReptiliaBR) e mamíferos (SBMz); para aves, o CTFB.
 
 <span class="nota-pequena">${fmtn(sem_uf)} espécies do recorte não têm UF em nenhuma fonte e ficam fora do mapa.</span>`
 ```

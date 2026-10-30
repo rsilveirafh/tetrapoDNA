@@ -52,16 +52,21 @@ gravar_csv <- function(x, caminho) {
   invisible(x)
 }
 
-# Baixa uma fonte para data-raw/. Se falhar, mantém a cópia versionada.
+# Baixa uma fonte para data-raw/. `url` pode ter alternativas, tentadas em
+# ordem. Se todas falharem, mantém a cópia versionada.
 baixar_fonte <- function(url, destino) {
   tmp <- tempfile(fileext = paste0(".", tools::file_ext(destino)))
-  ok <- tryCatch({
-    req_base(url) |> req_perform(path = tmp)
-    file.size(tmp) > 0
-  }, error = function(e) {
-    msg("  aviso: falha ao baixar ", url, " (", conditionMessage(e), ")")
-    FALSE
-  })
+  ok <- FALSE
+  for (u in url) {
+    ok <- tryCatch({
+      req_base(u) |> req_perform(path = tmp)
+      file.size(tmp) > 0
+    }, error = function(e) {
+      msg("  aviso: falha ao baixar ", u, " (", conditionMessage(e), ")")
+      FALSE
+    })
+    if (ok) break
+  }
   if (ok) {
     file.copy(tmp, destino, overwrite = TRUE)
   } else if (!file.exists(destino)) {

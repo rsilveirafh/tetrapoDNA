@@ -38,7 +38,7 @@ if (!is.null(ctfb)) {
   especies <- enriquece_ctfb(especies, ctfb)
 } else {
   especies <- mutate(especies, ctfb_situacao = "ausente", id_ctfb = NA_character_,
-                     nome_aceito_ctfb = NA_character_, sinonimos = NA_character_)
+                     nome_aceito_ctfb = NA_character_, sinonimos = sinonimos_lista)
 }
 
 # 3. BOLD ------------------------------------------------------------------------

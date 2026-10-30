@@ -36,7 +36,7 @@ A coluna `observacao` diz o motivo de cada "a verificar".
 
 | Grupo | Lista de referência | Licença |
 |---|---|---|
-| Anfíbios | Segalla et al. (2021), *List of Brazilian Amphibians*, Herpetologia Brasileira 10(1). [doi:10.5281/zenodo.4716176](https://doi.org/10.5281/zenodo.4716176). UF, bioma e categoria MMA via pacote [amphiBR](https://github.com/paulobarros/amphiBR) | lista CC-BY 4.0; amphiBR GPL ≥ 3 (só dados) |
+| Anfíbios | Drummond et al. (2026), *Lista de Anfíbios do Brasil*, Herpetologia Brasileira 15(2). [doi:10.5281/zenodo.18340087](https://doi.org/10.5281/zenodo.18340087), via `amphiBR::drummond2026` ([amphiBR](https://github.com/paulobarros/amphiBR); enquanto o PR #2 não entra, do fork `rsilveirafh/amphiBR`). UF, bioma, endemismo e DD/NT/LC de Segalla et al. (2021) ([doi:10.5281/zenodo.4716176](https://doi.org/10.5281/zenodo.4716176)) pelo nome de 2021 | listas CC-BY 4.0; amphiBR GPL ≥ 3 (só dados) |
 | Répteis | [ReptiliaBR](https://github.com/omarentiauspe/ReptiliaBR) v0.4.0 (Entiauspe-Neto, Costa & Guedes) | MIT |
 | Aves | CBRO: Pacheco et al. (2021), *Annotated checklist of the birds of Brazil*, 2ª ed., Lista Primária. [doi:10.5281/zenodo.5138368](https://doi.org/10.5281/zenodo.5138368) | CC-BY 4.0 |
 | Mamíferos | SBMz: Abreu et al., *Lista de Mamíferos do Brasil* v2025-1. [doi:10.5281/zenodo.18378485](https://doi.org/10.5281/zenodo.18378485) | CC-BY 4.0 |
@@ -79,9 +79,10 @@ data-raw/       cópias das fontes (usadas se o download falhar)
 *.qmd           site Quarto (dashboards com OJS: filtros no navegador, sem servidor)
 ```
 
-Para trocar a lista de um grupo (por exemplo, anfíbios 2021 → **Lista de Anfíbios do Brasil 2026**),
-reescreva a função do grupo em `R/listas.R` mantendo as colunas de `ESQUEMA`, e atualize a linha do
-grupo em `GRUPOS` e `FONTES_LISTAS`. Nada mais muda.
+Para trocar a lista de um grupo (por exemplo, aves CBRO 2021 → uma edição nova), reescreva a
+função do grupo em `R/listas.R` mantendo as colunas de `ESQUEMA`, e atualize a linha do grupo em
+`GRUPOS` e `FONTES_LISTAS`. Nada mais muda. Se a lista nova traz o nome anterior das espécies,
+ponha-o em `sinonimos_lista` (como em `lista_anfibios()`): ele entra na busca de DNA.
 
 ## Como rodar
 
