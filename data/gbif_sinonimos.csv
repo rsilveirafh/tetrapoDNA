@@ -1,9 +1,14 @@
 especie,sinonimos_gbif,gbif_situacao,consultado_em
 Aburria cumanensis,Pipile cumanensis,sinonimo,2026-10-28
 Adelophryne meridionalis,,aceito,2026-10-28
+Adelophryne nordestina,Adelophrnne nordestina,aceito,2026-10-30
+Adenomera albarena,,nao_reconhecido,2026-10-30
 Adenomera aurantiaca,,aceito,2026-10-28
+Adenomera cantitata,,nao_reconhecido,2026-10-30
+Adenomera guarani,,aceito,2026-10-30
 Adenomera inopinata,,aceito,2026-10-28
 Adenomera tapajonica,,aceito,2026-10-28
+Adhaerobufo ceratophrys,,nao_reconhecido,2026-10-30
 Aeronautes montivagus,Cypselus montivagus,aceito,2026-10-28
 Agelaioides fringillarius,Agelaioides badius,sinonimo,2026-10-28
 Agelasticus atroolivaceus,,nao_reconhecido,2026-10-28
@@ -12,8 +17,13 @@ Alainia albolineata,,nao_reconhecido,2026-10-28
 Alainia ernestoi,,nao_reconhecido,2026-10-28
 Alainia fulvorufa,,nao_reconhecido,2026-10-28
 Alainia microdiscus,,nao_reconhecido,2026-10-28
+Allobates albiventris,,aceito,2026-10-30
 Allobates bacurau,,aceito,2026-10-28
 Allobates caldwellae,,aceito,2026-10-28
+Allobates grillicantus,,nao_reconhecido,2026-10-30
+Allobates kamilae,,nao_reconhecido,2026-10-30
+Allobates paleci,,aceito,2026-10-30
+Allobates ripicolus,,aceito,2026-10-30
 Allobates vanzolinius,Colostethus vanzolinius,aceito,2026-10-28
 Alopoglossus amazonius,,aceito,2026-10-28
 Alopoglossus avilapiresae,,aceito,2026-10-28
@@ -66,6 +76,7 @@ Amphisbaena tragorrhectes,,aceito,2026-10-28
 Amphisbaena vanzolinii,,aceito,2026-10-28
 Anomaloglossus tepequem,,aceito,2026-10-28
 Anthus chii,,aceito,2026-10-28
+Aplastodiscus aulophonus,,nao_reconhecido,2026-10-30
 Apostolepis adhara,,aceito,2026-10-28
 Apostolepis arenaria,,aceito,2026-10-28
 Apostolepis borellii,,aceito,2026-10-28
@@ -127,7 +138,13 @@ Bahius bilineatus,,nao_reconhecido,2026-10-28
 Baliodryas steinbachi,Aporophis melanocephalus;Erythrolamprus steinbachi;Eutrachelophis steinbachi;Liophis steinbachi;Rhadinaea steinbachi,aceito,2026-10-28
 Boana claresignata,Bokermannohyla claresignata;Hyla claresignata,sinonimo,2026-10-28
 Boana clepsydra,Bokermannohyla clepsydra;Hyla clepsydra,sinonimo,2026-10-28
+Boana courtoisae,,aceito,2026-10-30
+Boana eucharis,,aceito,2026-10-30
+Boana guarinimirim,,aceito,2026-10-30
+Boana itajahy,,nao_reconhecido,2026-10-30
 Boana paranaiba,Hypsiboas paranaiba,aceito,2026-10-28
+Boana quiriri,,nao_reconhecido,2026-10-30
+Boana steinbachi,Hyla steinbachi;Hypsiboas steinbachi,aceito,2026-10-30
 Boiruna sertaneja,,aceito,2026-10-28
 Bokermannohyla langei,Boana langei;Hyla langei,aceito,2026-10-28
 Bokermannohyla napolii,,aceito,2026-10-28
@@ -136,7 +153,15 @@ Bothrops jabrensis,,aceito,2026-10-28
 Bothrops oligobalius,,aceito,2026-10-28
 Brachycephalus atelopoide,,aceito,2026-10-28
 Brachycephalus bufonoides,,aceito,2026-10-28
+Brachycephalus clarissae,,nao_reconhecido,2026-10-30
 Brachycephalus curupira,,aceito,2026-10-28
+Brachycephalus dacnis,,nao_reconhecido,2026-10-30
+Brachycephalus herculeus,,nao_reconhecido,2026-10-30
+Brachycephalus lulai,,nao_reconhecido,2026-10-30
+Brachycephalus nanicus,,nao_reconhecido,2026-10-30
+Brachycephalus puri,,aceito,2026-10-30
+Brachycephalus rotenbergae,,nao_reconhecido,2026-10-30
+Brachycephalus tabuleiro,,aceito,2026-10-30
 Bradypus crinitus,Bradypus torquatus;Bradypus affinis;Bradypus cristatus;Bradypus melanotis;Hemibradypus mareyi,sinonimo,2026-10-28
 Brasilotyphlus braziliensis,Gymnopis braziliensis,aceito,2026-10-28
 Caaeteboia gaeli,,aceito,2026-10-28
@@ -146,6 +171,7 @@ Cacajao ucayalii,,nao_reconhecido,2026-10-28
 Caecilia armata,,aceito,2026-10-28
 Caecilia marcusi,,aceito,2026-10-28
 Calamodontophis ronaldoi,Calamodontophis dorsolineatus,aceito,2026-10-28
+Caligophryne doylei,,nao_reconhecido,2026-10-30
 Callicebus barbarabrownae,,aceito,2026-10-28
 Callicebus melanochir,Callithrix canescens;Callithrix gigot;Callithrix melanochir,aceito,2026-10-28
 Calomys cerqueirai,,aceito,2026-10-28
@@ -169,6 +195,7 @@ Ceuthomantis cavernibardus,Eleutherodactylus cavernibardus;Pristimantis cavernib
 Chelus orinocensis,,aceito,2026-10-28
 Chiasmocleis atlantica,,aceito,2026-10-28
 Chiasmocleis bicegoi,,aceito,2026-10-28
+Chiasmocleis jacki,,aceito,2026-10-30
 Chiasmocleis migueli,,aceito,2026-10-28
 Chironius dixoni,Chironius laurenti,sinonimo,2026-10-28
 Chironius dracomaris,,nao_reconhecido,2026-10-28
@@ -179,6 +206,7 @@ Chrysuronia rondoniae,,nao_reconhecido,2026-10-28
 Chthonerpeton arii,,aceito,2026-10-28
 Chthonerpeton braestrupi,,aceito,2026-10-28
 Chthonerpeton exile,,aceito,2026-10-28
+Chthonerpeton markwilkinsoni,,nao_reconhecido,2026-10-30
 Chthonerpeton noctinectes,,aceito,2026-10-28
 Chthonerpeton perissodus,,aceito,2026-10-28
 Chthonerpeton tremembe,,aceito,2026-10-28
@@ -195,7 +223,10 @@ Conothraupis mesoleuca,Rhynchothraupis mesoleuca,aceito,2026-10-28
 Contopus albogularis,Myiochanes albogularis,aceito,2026-10-28
 Copeoglossum arajara,Mabuya arajara,aceito,2026-10-28
 Coronelaps lepidus,Elapomorphus lepidus,aceito,2026-10-28
+Crossodactylodes alairi,,nao_reconhecido,2026-10-30
 Crossodactylodes pintoi,,aceito,2026-10-28
+Crossodactylodes serranegra,,nao_reconhecido,2026-10-30
+Crossodactylodes teixeirai,,nao_reconhecido,2026-10-30
 Crossodactylus boulengeri,Calamobates boulengeri,aceito,2026-10-28
 Crossodactylus cyclospinus,,aceito,2026-10-28
 Crossodactylus dispar,Crossodactylus fuscigula,aceito,2026-10-28
@@ -231,12 +262,17 @@ Dendrocincla atrirostris,,nao_reconhecido,2026-10-28
 Dendrocincla taunayi,,nao_reconhecido,2026-10-28
 Dendrocolaptes transfasciatus,,nao_reconhecido,2026-10-28
 Dendrophidion atlantica,,aceito,2026-10-28
+Dendrophryniscus cuca,,nao_reconhecido,2026-10-30
 Dendrophryniscus izecksohni,,aceito,2026-10-28
 Dendrophryniscus skuki,Rhinella skuki,aceito,2026-10-28
 Dendrophryniscus stawiarskyi,,aceito,2026-10-28
+Dendropsophus arndti,,aceito,2026-10-30
 Dendropsophus bilobatus,,aceito,2026-10-28
+Dendropsophus frosti,,aceito,2026-10-30
 Dendropsophus limai,Hyla limai,aceito,2026-10-28
 Dendropsophus minimus,Hyla minima,aceito,2026-10-28
+Dendropsophus reichlei,,aceito,2026-10-30
+Dendropsophus tapacurensis,,aceito,2026-10-30
 Dendropsophus tintinnabulum,Hyla tintinnabulum,aceito,2026-10-28
 Dibernardia bilineatus,,nao_reconhecido,2026-10-28
 Didelphis poecilotis,,nao_reconhecido,2026-10-28
@@ -248,6 +284,13 @@ Dipsas lavillai,Sibynomorphus lavillai,aceito,2026-10-28
 Dipsas sazimai,,aceito,2026-10-28
 Ditaxodon taeniatus,Philodryas taeniatus,aceito,2026-10-28
 Dracaena paraguayensis,,aceito,2026-10-28
+Dryadobates alagoanus,,nao_reconhecido,2026-10-30
+Dryadobates bokermanni,,nao_reconhecido,2026-10-30
+Dryadobates capixaba,,nao_reconhecido,2026-10-30
+Dryadobates carioca,,nao_reconhecido,2026-10-30
+Dryadobates erythropus,,nao_reconhecido,2026-10-30
+Dryadobates lutzi,,nao_reconhecido,2026-10-30
+Dryadobates olfersioides,,nao_reconhecido,2026-10-30
 Dryadonycteris capixaba,,aceito,2026-10-28
 Dryophylax ramonriveroi,,nao_reconhecido,2026-10-28
 Echimys vieirai,,aceito,2026-10-28
@@ -345,6 +388,7 @@ Hylodes mertensi,Elosia mertensi,aceito,2026-10-28
 Hylodes otavioi,,aceito,2026-10-28
 Hylodes vanzolinii,,aceito,2026-10-28
 Iodopleura pipra,,aceito,2026-10-28
+Ischnocnema crassa,,nao_reconhecido,2026-10-30
 Ischnocnema epipeda,Eleutherodactylus epipedus,aceito,2026-10-28
 Ischnocnema feioi,,aceito,2026-10-28
 Ischnocnema garciai,,aceito,2026-10-28
@@ -355,6 +399,11 @@ Ischnocnema nigriventris,Basanitia nigriventris;Eleutherodactylus nigriventris;H
 Ischnocnema paranaensis,Eleutherodactylus paranaensis,aceito,2026-10-28
 Ischnocnema penaxavantinho,,aceito,2026-10-28
 Ischnocnema pusilla,Eleutherodactylus pusillus,aceito,2026-10-28
+Ischnocnema rubridactyla,,nao_reconhecido,2026-10-30
+Julianus camposseabrai,,nao_reconhecido,2026-10-30
+Julianus fontanarrosai,,nao_reconhecido,2026-10-30
+Julianus pinimus,Hyla pinima;Scinax pinima,aceito,2026-10-30
+Julianus uruguayus,Hyla uruguaya;Scinax uruguayus,aceito,2026-10-30
 Juscelinomys candango,,aceito,2026-10-28
 Lasiurus castaneus,,aceito,2026-10-28
 Lasiurus ebenus,,aceito,2026-10-28
@@ -372,7 +421,10 @@ Leposternon mineiro,,aceito,2026-10-28
 Leposternon octostegum,Amphisbaena octostegum;Lepidosternon octostegum,aceito,2026-10-28
 Leposternon scutigerum,Amphisbaena scutigera;Cephalopeltis cuvieri;Cephalopeltis scutigerua;Lepidosternon hemprichii;Lepidosternon scutigerum,aceito,2026-10-28
 Leposternon wuchereri,Amphisbaena wuchereri;Lepidosternon wuchereri;Lepidosternum sinuosum,aceito,2026-10-28
+Leptodactylus avivoca,,aceito,2026-10-30
 Leptodactylus caatingae,,aceito,2026-10-28
+Leptodactylus fremitus,,aceito,2026-10-30
+Leptodactylus gualambensis,Leptodactylus fuscus;Cystignathus fuscus;Cystignathus schomburgkii;Cystignathus sibilatrix;Leptodactylus raniformis;Leptodactylus sybilator;Leptodactylus sybilatrix;Rana fusca;Rana sibilatrix,sinonimo,2026-10-30
 Leptodactylus hylodes,Cystignathus hylodes,aceito,2026-10-28
 Leptodactylus lauramiriamae,,aceito,2026-10-28
 Leptodactylus ochraceus,,aceito,2026-10-28
@@ -406,6 +458,7 @@ Megascops roraimae,Scops roraimae,aceito,2026-10-28
 Melanopareia bitorquata,Melanopareia torquata,sinonimo,2026-10-28
 Melanophryniscus admirabilis,,aceito,2026-10-28
 Melanophryniscus cambaraensis,,aceito,2026-10-28
+Melanophryniscus formosus,,nao_reconhecido,2026-10-30
 Melanophryniscus macrogranulosus,,aceito,2026-10-28
 Melanophryniscus montevidensis,Phryniscus montevidensis,aceito,2026-10-28
 Melanophryniscus peritus,,aceito,2026-10-28
@@ -465,6 +518,8 @@ Nannochordeiles pusillus,,nao_reconhecido,2026-10-28
 Neacomys aletheia,,nao_reconhecido,2026-10-28
 Neacomys jau,,nao_reconhecido,2026-10-28
 Neacomys oliveirai,,aceito,2026-10-28
+Neblinaphryne imeri,,nao_reconhecido,2026-10-30
+Neblinaphryne mayeri,,nao_reconhecido,2026-10-30
 Nectocaecilia petersii,Chthonerpeton petersii,aceito,2026-10-28
 Nemosia rourei,,aceito,2026-10-28
 Nengetus coronatus,,nao_reconhecido,2026-10-28
@@ -483,11 +538,68 @@ Notharchus swainsoni,,aceito,2026-10-28
 Numenius borealis,Scolopax borealis,aceito,2026-10-28
 Nyctidromus hirundinaceus,,nao_reconhecido,2026-10-28
 Nyctidromus nigrescens,,nao_reconhecido,2026-10-28
+Nyctimantis diadorim,,nao_reconhecido,2026-10-30
 Nyctiprogne vielliardi,Chordeiles vielliardi,aceito,2026-10-28
 Nystalus striatipectus,,aceito,2026-10-28
+Odontophrynus asper,,nao_reconhecido,2026-10-30
 Odontophrynus maisuma,,aceito,2026-10-28
 Odontophrynus monachus,,aceito,2026-10-28
+Odontophrynus reigi,,aceito,2026-10-30
+Odontophrynus toledoi,,aceito,2026-10-30
 Oligoryzomys gri,,nao_reconhecido,2026-10-28
+Ololygon agilis,Hyla agilis;Scinax agilis,aceito,2026-10-30
+Ololygon albicans,Hyla albicans;Ololygon opalina;Scinax albicans;Scinax opalina,aceito,2026-10-30
+Ololygon alcatraz,Scinax alcatraz,aceito,2026-10-30
+Ololygon angrensis,Hyla angrensis;Scinax angrensis,aceito,2026-10-30
+Ololygon arduoua,Ololygon arduous;Scinax arduous,aceito,2026-10-30
+Ololygon argyreornata,Eleutherodactylus argyreornatus;Hyla argyreornata;Hylodes argyreornatus;Scinax argyreornatus,aceito,2026-10-30
+Ololygon ariadne,Hyla ariadne;Scinax ariadne,aceito,2026-10-30
+Ololygon aromothyella,Scinax aromothyella,aceito,2026-10-30
+Ololygon atrata,Hyla atrata;Scinax atratus,aceito,2026-10-30
+Ololygon belloni,Scinax belloni,aceito,2026-10-30
+Ololygon berthae,Hyla berthae;Scinax berthae,aceito,2026-10-30
+Ololygon brieni,Hyla brieni;Scinax brieni,aceito,2026-10-30
+Ololygon caissara,Scinax caissara,aceito,2026-10-30
+Ololygon canastrensis,Hyla canastrensis;Scinax canastrensis,aceito,2026-10-30
+Ololygon cardosoi,Scinax cardosoi,sinonimo,2026-10-30
+Ololygon carnevallii,Hyla carnevallii;Scinax carnevallii,aceito,2026-10-30
+Ololygon catharinae,Hyla catharinae;Scinax catharinae,aceito,2026-10-30
+Ololygon centralis,Scinax centralis,aceito,2026-10-30
+Ololygon cosenzai,Ololygon cosenzi;Scinax cosenzai,aceito,2026-10-30
+Ololygon faivovichi,Scinax faivovichi,aceito,2026-10-30
+Ololygon feioi,,nao_reconhecido,2026-10-30
+Ololygon flavoguttata,Hyla flavoguttata;Scinax flavoguttatus,aceito,2026-10-30
+Ololygon garibaldiae,,nao_reconhecido,2026-10-30
+Ololygon goya,,aceito,2026-10-30
+Ololygon heyeri,Scinax heyeri,aceito,2026-10-30
+Ololygon hiemalis,Hyla hiemalis;Scinax hiemalis,aceito,2026-10-30
+Ololygon humilis,Hyla humilis;Scinax humilis,aceito,2026-10-30
+Ololygon insperata,Scinax insperatus,aceito,2026-10-30
+Ololygon jureia,Hyla jureia;Scinax jureia,aceito,2026-10-30
+Ololygon kautskyi,Scinax kautskyi,aceito,2026-10-30
+Ololygon littoralis,Hyla littoralis;Scinax littoralis,aceito,2026-10-30
+Ololygon littorea,Ololygon littoreus;Scinax littorea,aceito,2026-10-30
+Ololygon longilinea,Hyla longilinea;Scinax longilinea,aceito,2026-10-30
+Ololygon luizotavioi,Scinax luizotavioi,aceito,2026-10-30
+Ololygon machadoi,Hyla machadoi;Scinax machadoi,aceito,2026-10-30
+Ololygon melanodactyla,Scinax melanodactylus,aceito,2026-10-30
+Ololygon melloi,Scinax melloi,aceito,2026-10-30
+Ololygon muriciensis,Scinax muriciensis,aceito,2026-10-30
+Ololygon obtriangulata,Hyla obtriangulata;Scinax obtriangulatus,aceito,2026-10-30
+Ololygon paracatu,,nao_reconhecido,2026-10-30
+Ololygon paulofreirei,,nao_reconhecido,2026-10-30
+Ololygon peixotoi,Scinax peixotoi,aceito,2026-10-30
+Ololygon perpusilla,Hyla perpusilla;Scinax perpusillus,aceito,2026-10-30
+Ololygon pixinguinha,,nao_reconhecido,2026-10-30
+Ololygon pombali,Scinax pombali,aceito,2026-10-30
+Ololygon ranki,Hyla ranki;Scinax ranki,aceito,2026-10-30
+Ololygon rizibilis,Hyla mirim;Hyla rizibilis;Ololygon mirim;Scinax rizibilis,aceito,2026-10-30
+Ololygon skaios,Scinax skaios,aceito,2026-10-30
+Ololygon strigilata,Hyla strigilata;Scinax strigilatus,aceito,2026-10-30
+Ololygon trapicheiroi,Hyla trapicheiroi;Scinax trapicheiroi;Scinax trapicheroy,aceito,2026-10-30
+Ololygon tripui,Scinax tripui,aceito,2026-10-30
+Ololygon tupinamba,Scinax tupinamba,aceito,2026-10-30
+Ololygon v-signata,Scinax v-signatus,aceito,2026-10-30
 Onychorhynchus swainsoni,Onychorhynchus coronatus,sinonimo,2026-10-28
 Ophiodes enso,,aceito,2026-10-28
 Ophiodes fragilis,Ophiodes yacupoi;Seps fragilis,aceito,2026-10-28
@@ -498,10 +610,13 @@ Ortalis squamata,Ortalida squamata,aceito,2026-10-28
 Ortalis superciliaris,,aceito,2026-10-28
 Oscaecilia hypereumeces,,aceito,2026-10-28
 Osteocephalus camufatus,,aceito,2026-10-28
+Osteocephalus heyeri,,aceito,2026-10-30
+Osteocephalus melanops,,aceito,2026-10-30
 Oxymycterus caparaoe,Oxymycterus caparoae,aceito,2026-10-28
 Panyptila cayennensis,Hirundo cayennensis,aceito,2026-10-28
 Parapostolepis polylepis,Apostolepis polylepis,sinonimo,2026-10-28
 Paratelmatobius lutzii,,aceito,2026-10-28
+Paratelmatobius stellaris,,nao_reconhecido,2026-10-30
 Paroaria xinguensis,,nao_reconhecido,2026-10-28
 Pauxi tomentosa,,nao_reconhecido,2026-10-28
 Percnostola subcristata,,nao_reconhecido,2026-10-28
@@ -514,6 +629,8 @@ Phalotris labiomaculatus,,aceito,2026-10-28
 Phalotris multipunctatus,,aceito,2026-10-28
 Phalotris tricolor,Elapomorphus punctatus;Elapomorphus tricolor;Phalotris punctatus,aceito,2026-10-28
 Phantasmarana bocainensis,,nao_reconhecido,2026-10-28
+Phantasmarana curucutuensis,,aceito,2026-10-30
+Phantasmarana tamuia,,aceito,2026-10-30
 Phasmahyla timbo,,aceito,2026-10-28
 Philodryas livida,Platyinion lividum,aceito,2026-10-28
 Philydor novaesi,,aceito,2026-10-28
@@ -521,11 +638,13 @@ Phrynomedusa bokermanni,,aceito,2026-10-28
 Phrynomedusa fimbriata,Phyllomedusa fimbriata,aceito,2026-10-28
 Phrynomedusa vanzolinii,,aceito,2026-10-28
 Phrynonax sexcarinatus,Chironius quadricarinatus;Chironius cinnamomeus;Erpetodryas quadricarinatus;Natrix cinnamomea;Natrix sexcarinatus;Phyllosira flavescens;Pseustes cinnamomeus;Pseustes sexcarinatus,sinonimo,2026-10-28
+Phyllodytes iuna,,nao_reconhecido,2026-10-30
 Phyllomyias griseocapilla,,aceito,2026-10-28
 Phyllomyias reiseri,,aceito,2026-10-28
 Phyllomyias weedeni,,aceito,2026-10-28
 Phyllomys medius,,aceito,2026-10-28
 Phyllomys thomasi,Echimys thomasi,aceito,2026-10-28
+Phyllonastes myrmecoides,Noblella myrmecoides;Euparkerella myrmecoides,sinonimo,2026-10-30
 Phyllopezus diamantino,,aceito,2026-10-28
 Phylloscartes beckeri,,aceito,2026-10-28
 Phylloscartes ceciliae,,aceito,2026-10-28
@@ -533,6 +652,7 @@ Phylloscartes kronei,,aceito,2026-10-28
 Phylloscartes paulista,Phylloscartes paulistus,aceito,2026-10-28
 Phylloscartes roquettei,,aceito,2026-10-28
 Physalaemus angrensis,,aceito,2026-10-28
+Physalaemus araxa,,aceito,2026-10-30
 Physalaemus caete,,aceito,2026-10-28
 Physalaemus carrizorum,,aceito,2026-10-28
 Physalaemus insperatus,,aceito,2026-10-28
@@ -559,30 +679,45 @@ Polioptila atricapilla,,nao_reconhecido,2026-10-28
 Polioptila facilis,,aceito,2026-10-28
 Polioptila innotata,,nao_reconhecido,2026-10-28
 Polioptila parvirostris,,nao_reconhecido,2026-10-28
+Pristimantis campinarana,,nao_reconhecido,2026-10-30
+Pristimantis crepitaculus,,aceito,2026-10-30
+Pristimantis espedeus,,aceito,2026-10-30
 Pristimantis eurydactylus,Eleutherodactylus eurydactylus,aceito,2026-10-28
+Pristimantis fouqueti,,nao_reconhecido,2026-10-30
+Pristimantis koehleri,,aceito,2026-10-30
 Pristimantis memorans,Eleutherodactylus memorans,aceito,2026-10-28
+Pristimantis paulogabrieli,,nao_reconhecido,2026-10-30
+Pristimantis relictus,,aceito,2026-10-30
 Pristimantis ventrigranulosus,,aceito,2026-10-28
 Proceratophrys bagnoi,,aceito,2026-10-28
 Proceratophrys branti,,aceito,2026-10-28
 Proceratophrys carranca,,aceito,2026-10-28
 Proceratophrys gladius,,aceito,2026-10-28
+Proceratophrys korekore,,aceito,2026-10-30
 Proceratophrys moehringi,,aceito,2026-10-28
 Proceratophrys phyllostomus,,aceito,2026-10-28
 Proceratophrys pombali,,aceito,2026-10-28
 Proceratophrys rondonae,,aceito,2026-10-28
 Proceratophrys rotundipalpebra,,aceito,2026-10-28
 Proceratophrys sanctaritae,,aceito,2026-10-28
+Proceratophrys velhochico,,nao_reconhecido,2026-10-30
 Proceratophrys vielliardi,,aceito,2026-10-28
 Pseudablabes arnaldoi,,nao_reconhecido,2026-10-28
 Pseudablabes patagoniensis,,nao_reconhecido,2026-10-28
+Pseudis boliviana,Lysapsus bolivianus,sinonimo,2026-10-30
+Pseudis caraya,Lysapsus caraya,sinonimo,2026-10-30
+Pseudis laevis,Lysapsus laevis,sinonimo,2026-10-30
+Pseudis limellum,Lysapsus limellum;Lisapsus limellum;Podonectes palmatus,sinonimo,2026-10-30
 Pseudoboa haasi,Oxyrrhopus haasi,aceito,2026-10-28
 Pseudoboa martinsi,,aceito,2026-10-28
 Pseudoboa serrana,,aceito,2026-10-28
 Pseudogonatodes gasconi,,aceito,2026-10-28
 Pseudopaludicola atragula,,aceito,2026-10-28
 Pseudopaludicola ceratophyes,Pseudopaludicola ceratophryes,aceito,2026-10-28
+Pseudopaludicola chimaera,,nao_reconhecido,2026-10-30
 Pseudopaludicola hyleaustralis,,aceito,2026-10-28
 Pseudopaludicola ibisoroca,,aceito,2026-10-28
+Pseudopaludicola javae,,nao_reconhecido,2026-10-30
 Pseudopaludicola motorzinho,,aceito,2026-10-28
 Pseudoseisura cristata,,aceito,2026-10-28
 Psophia dextralis,,aceito,2026-10-28
@@ -597,28 +732,42 @@ Pyrrhura anerythra,,nao_reconhecido,2026-10-28
 Pyrrhura coerulescens,Sporophila caerulescens;Pyrrhula caerulescens,sinonimo,2026-10-28
 Pyrrhura pallescens,,nao_reconhecido,2026-10-28
 Radinopsyche sellowi,Herpsilochmus sellowi,sinonimo,2026-10-28
+Ranitomeya aetherea,,nao_reconhecido,2026-10-30
+Ranitomeya aquamarina,,nao_reconhecido,2026-10-30
+Ranitomeya cyanovittata,,aceito,2026-10-30
+Ranitomeya hwata,,nao_reconhecido,2026-10-30
 Rauenia bonariensis,Pipraeidea bonariensis;Thraupis bonariensis,aceito,2026-10-28
 Relictocleis gnoma,,nao_reconhecido,2026-10-28
 Rhinatrema ron,,aceito,2026-10-28
+Rhinella martyi,,aceito,2026-10-30
 Rhinella nattereri,,aceito,2026-10-28
+Rhinella roqueana,Bufo roqueanus,aceito,2026-10-30
 Rhinella sebbeni,,aceito,2026-10-28
+Rhinella stanlaii,Bufo stanlaii,aceito,2026-10-30
+Rhinella teotoniensis,,aceito,2026-10-30
 Rhipidomys baturiteensis,,nao_reconhecido,2026-10-28
 Rhipidomys bezerrensis,,nao_reconhecido,2026-10-28
 Rhipidomys caracolensis,,nao_reconhecido,2026-10-28
 Rhipidomys cearanus,,nao_reconhecido,2026-10-28
 Rhogeessa hussoni,,aceito,2026-10-28
 Rondonops xanthomystax,,aceito,2026-10-28
+Rupirana kaatinga,,nao_reconhecido,2026-10-30
 Saguinus kulina,,nao_reconhecido,2026-10-28
 Saguinus pileatus,Saguinus mystax,sinonimo,2026-10-28
 Saguinus subgrisescens,,nao_reconhecido,2026-10-28
 Schiffornis amazonum,,nao_reconhecido,2026-10-28
 Schiffornis olivacea,Schiffornis turdina;Scotothorus olivaceus,sinonimo,2026-10-28
 Sciaphylax pallens,,nao_reconhecido,2026-10-28
+Scinax albertinae,,aceito,2026-10-30
 Scinax atratus,Ololygon atrata;Hyla atrata,sinonimo,2026-10-28
 Scinax baumgardneri,Hyla baumgardneri;Ololygon baumgardneri,aceito,2026-10-28
 Scinax carnevallii,Ololygon carnevallii;Hyla carnevallii,sinonimo,2026-10-28
+Scinax chiquitanus,Ololygon chiquitana,aceito,2026-10-30
+Scinax coerulea,,nao_reconhecido,2026-10-30
 Scinax goya,,nao_reconhecido,2026-10-28
+Scinax jolyi,,aceito,2026-10-30
 Scinax jureia,Ololygon jureia;Hyla jureia,sinonimo,2026-10-28
+Scinax juruena,Ololygon jureia;Hyla jureia;Scinax jureia,sinonimo,2026-10-30
 Scinax lindsayi,,aceito,2026-10-28
 Scinax luizotavioi,Ololygon luizotavioi,sinonimo,2026-10-28
 Scinax pinimus,Julianus pinimus;Hyla pinima;Scinax pinima,sinonimo,2026-10-28
@@ -655,6 +804,8 @@ Sylvilagus minensis,,nao_reconhecido,2026-10-28
 Sylvilagus paraguensis,,nao_reconhecido,2026-10-28
 Sylvilagus tapetillus,,aceito,2026-10-28
 Synallaxis simoni,,aceito,2026-10-28
+Synapturanus ajuricaba,,aceito,2026-10-30
+Synapturanus zombie,,aceito,2026-10-30
 Syrtidicola fluviatilis,Muscisaxicola fluviatilis,sinonimo,2026-10-28
 Tachymenis ocellata,Mioptachys ocularis;Tachymenis ocularis;Tachys ocularis,sinonimo,2026-10-28
 Tamatia tamatia,,nao_reconhecido,2026-10-28
@@ -665,6 +816,7 @@ Thalaphorus chlorocercus,,nao_reconhecido,2026-10-28
 Thamnodynastes longicaudus,Thamnodynastes longicauda,aceito,2026-10-28
 Thamnodynastes silvai,,aceito,2026-10-28
 Thlypopsis pyrrhocoma,Pyrrhocoma ruficeps,aceito,2026-10-28
+Thoropa bryomantis,,nao_reconhecido,2026-10-30
 Thoropa petropolitana,Borborocoetes petropolitanus;Eleutherodactylus petropolitanus;Elosia petropolitanus;Eupsophus petropolitanus;Hylodes petropolitanus,aceito,2026-10-28
 Thripophaga macroura,,aceito,2026-10-28
 Thylamys macrurus,,aceito,2026-10-28
@@ -699,6 +851,7 @@ Urubitinga urubitinga,,nao_reconhecido,2026-10-28
 Vanzosaura savanicola,,aceito,2026-10-28
 Veniliornis maculifrons,Dryobates maculifrons;Picus maculifrons,aceito,2026-10-28
 Vireo gracilirostris,,aceito,2026-10-28
+Vitreorana assuh,,aceito,2026-10-30
 Xenopholis werdingorum,,aceito,2026-10-28
 Xiphocolaptes carajaensis,,nao_reconhecido,2026-10-28
 Xiphorhynchus beauperthuysii,Xiphorhynchus ocellatus,sinonimo,2026-10-28
