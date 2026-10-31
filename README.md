@@ -55,6 +55,10 @@ Além das listas:
 - **GBIF Backbone** (`api.gbif.org/v1/species/match` e `/synonyms`): sinônimos das candidatas a órfã
   (o CTFB quase não tem sinônimos de aves e répteis). Cache de 90 dias em `data/gbif_sinonimos.csv`.
 - **IBGE**, malha de UFs (API de malhas, qualidade mínima) para o mapa.
+- **iNaturalist** (`api.inaturalist.org/v1/taxa`): foto padrão das espécies que não estão "com DNA",
+  só com licença Creative Commons (autor e licença aparecem no cartão). Cache de 180 dias em
+  `data/fotos.csv`.
+- **PhyloPic**: silhuetas dos quatro grupos (créditos em `assets/silhuetas/CREDITOS.md`).
 
 ## Estrutura
 
@@ -66,6 +70,7 @@ R/gbif.R        GBIF: sinônimos das candidatas a órfã
 R/bold.R        BOLD: resumo por classe, soma sob nome + sinônimos
 R/genbank.R     NCBI: contagem incremental com cache, pausa e retry
 R/junta.R       situação, observação, histórico e eventos
+R/fotos.R       iNaturalist: fotos com licença CC das espécies sem DNA
 scripts/atualiza.R  pipeline completo
 data/           saídas versionadas (o diff do git é o histórico)
   especies.csv     lista unificada (4 grupos, esquema comum)
@@ -74,9 +79,12 @@ data/           saídas versionadas (o diff do git é o histórico)
   historico.csv    totais por grupo a cada execução
   eventos.csv      espécies que ganharam DNA (data)
   adocoes.csv      adoções aprovadas (lido pelo site)
+  fotos.csv        foto, autor e licença (iNaturalist) das espécies sem DNA
   ctfb.csv, cache/ insumos (CTFB e resumo do BOLD)
 data-raw/       cópias das fontes (usadas se o download falhar)
-*.qmd           site Quarto (dashboards com OJS: filtros no navegador, sem servidor)
+*.qmd           site Quarto (páginas com OJS: filtros no navegador, sem servidor)
+tema-*.scss, estilo.scss  identidade visual (cores, fontes, componentes)
+assets/         logo, favicon e silhuetas
 ```
 
 Para trocar a lista de um grupo (por exemplo, aves CBRO 2021 → uma edição nova), reescreva a

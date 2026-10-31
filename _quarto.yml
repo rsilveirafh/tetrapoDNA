@@ -15,10 +15,13 @@ project:
     - data/eventos.csv
     - data/adocoes.csv
     - data/status.json
+    - data/fotos.csv
     - data-raw/uf_ibge.geojson
+    - assets/**
 
 website:
   title: "tetrapoDNA"
+  favicon: assets/favicon.svg
   description: "Quantas espécies de tetrápodes do Brasil (anfíbios, répteis, aves e mamíferos) ainda não têm nenhuma sequência de DNA pública no BOLD ou no GenBank? Atualizado toda semana."
   site-url: "https://rsilveirafh.github.io/tetrapoDNA/"
   repo-url: "https://github.com/rsilveirafh/tetrapoDNA"
@@ -26,6 +29,8 @@ website:
   open-graph: true
   twitter-card: true
   navbar:
+    logo: assets/logo.svg
+    logo-alt: "tetrapoDNA"
     left:
       - href: index.qmd
         text: Visão geral
@@ -42,7 +47,7 @@ website:
         href: "https://github.com/rsilveirafh/tetrapoDNA"
         aria-label: Código no GitHub
   page-footer:
-    left: "Dados: BOLD Systems, NCBI GenBank, CTFB/JBRJ e listas da SBH, CBRO e SBMz (ver Fontes)."
+    left: "Dados: BOLD Systems, NCBI GenBank, CTFB/JBRJ e listas da SBH, CBRO e SBMz (ver Fontes). Silhuetas: PhyloPic."
     right: "Código MIT · Dados CC-BY 4.0"
 
 lang: pt-BR
@@ -50,16 +55,13 @@ lang: pt-BR
 format:
   html:
     theme:
-      light: [cosmo, estilo.scss]
-      dark: [darkly, estilo.scss]
+      light: [tema-claro.scss, estilo.scss]
+      dark: [tema-escuro.scss, estilo.scss]
     toc: false
   dashboard:
     theme:
-      light: [cosmo, estilo.scss]
-      dark: [darkly, estilo.scss]
-    nav-buttons:
-      - icon: github
-        href: "https://github.com/rsilveirafh/tetrapoDNA"
+      light: [tema-claro.scss, estilo.scss]
+      dark: [tema-escuro.scss, estilo.scss]
 
 execute:
   echo: false

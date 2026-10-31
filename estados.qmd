@@ -1,26 +1,34 @@
 ---
-title: "Por estado"
-format: dashboard
+pagetitle: "Por estado · tetrapoDNA"
+description: "Espécies de tetrápodes sem DNA público por estado do Brasil."
+format:
+  html:
+    page-layout: full
 ---
 
 {{< include _comum.qmd >}}
 
-## {.sidebar}
+::: {.cc-cabeca}
+[Por estado]{.cc-chapeu}
 
+# Onde estão as espécies sem DNA
+
+[Uma espécie entra em todos os estados onde ocorre. Ocorrência por UF: listas de anfíbios (amphiBR, pelo nome de 2021; espécies novas pelo CTFB), répteis (ReptiliaBR) e mamíferos (SBMz); para aves, o CTFB. ${fmtn(sem_uf)} espécies do recorte não têm UF em nenhuma fonte e ficam fora do mapa.]{.cc-intro}
+:::
+
+::: {.cc-filtros}
 ```{ojs}
 viewof grupo = Inputs.radio(OPCOES_GRUPO, {label: "Grupo", value: "Todos"})
-viewof metrica = Inputs.radio(["espécies sem DNA", "% sem DNA", "espécies na lista"], {label: "Cor do mapa", value: "espécies sem DNA"})
-viewof com_verificar = Inputs.toggle({label: "Somar \"a verificar\" às sem DNA", value: false})
 ```
 
 ```{ojs}
-md`Uma espécie entra em todos os estados onde ocorre. Ocorrência por UF: listas de anfíbios (amphiBR, pelo nome de 2021; espécies novas pelo CTFB), répteis (ReptiliaBR) e mamíferos (SBMz); para aves, o CTFB.
-
-<span class="nota-pequena">${fmtn(sem_uf)} espécies do recorte não têm UF em nenhuma fonte e ficam fora do mapa.</span>`
+viewof metrica = Inputs.radio(["espécies sem DNA", "% sem DNA", "espécies na lista"], {label: "Cor do mapa", value: "espécies sem DNA"})
 ```
 
-
-## Column {width=55%}
+```{ojs}
+viewof com_verificar = Inputs.checkbox(["somar \"a verificar\""], {label: "Sem DNA"})
+```
+:::
 
 ```{ojs}
 //| output: false
@@ -34,7 +42,7 @@ sem_uf = sel.filter(d => d.ufs_lista.length === 0).length
 
 ```{ojs}
 //| output: false
-eh_sem = d => d.situacao === "sem DNA" || (com_verificar && d.situacao === "a verificar")
+eh_sem = d => d.situacao === "sem DNA" || (com_verificar.length > 0 && d.situacao === "a verificar")
 ```
 
 ```{ojs}
@@ -79,37 +87,47 @@ geo = {
 }
 ```
 
-
+::: {.cc-mapa-tabela}
+::: {.cc-mapa}
 ```{ojs}
-//| title: "Mapa"
 {
   const idx = new Map(por_uf.map(d => [d.uf, d]));
   const feats = geo.features.map(f => ({...f, properties: {...f.properties, ...idx.get(COD_UF[f.properties.codarea])}}));
   const fc = {type: "FeatureCollection", features: feats};
+  const w = Math.min(width, 680);
   return Plot.plot({
-    width: 620, height: 600, style: {fontSize: "13px"},
+    width: w, height: w * 0.97, style: {fontFamily: "Inter, sans-serif", fontSize: "12px", background: "transparent"},
     projection: {type: "mercator", domain: fc},
-    color: {type: "linear", range: ["#cde2fb", "#0d366b"], legend: true, label: metrica,
+    color: {type: "linear", range: ["#f1e8d6", "#9a4322"], legend: true, label: metrica,
             tickFormat: metrica === "% sem DNA" ? fmtpct : fmtn},
     marks: [
-      Plot.geo(fc, {fill: f => valor(f.properties), stroke: "white", strokeWidth: 0.8,
-        tip: true,
-        title: f => `${f.properties.nome}\n${fmtn(f.properties.total)} espécies\n${fmtn(f.properties.sem)} sem DNA (${fmtpct(f.properties.pct)})\n${fmtn(f.properties.verificar)} a verificar`}),
-      Plot.text(fc.features, Plot.centroid({text: f => f.properties.uf, fill: "#0b0b0b", stroke: "white", strokeWidth: 3, fontSize: 11}))
+      Plot.geo(fc, {fill: f => valor(f.properties), stroke: "var(--cc-papel)", strokeWidth: 1,
+        tip: {fontFamily: "Inter, sans-serif"},
+        title: f => `${f.properties.nome}
+${fmtn(f.properties.total)} espécies
+${fmtn(f.properties.sem)} sem DNA (${fmtpct(f.properties.pct)})
+${fmtn(f.properties.verificar)} a verificar`}),
+      Plot.text(fc.features, Plot.centroid({text: f => f.properties.uf, fill: "#1d2421", stroke: "#f7f4ec",
+        strokeWidth: 3, fontSize: 10, fontWeight: 600}))
     ]
   });
 }
 ```
+:::
 
-## Column {width=45%}
-
+::: {.cc-ranking}
 ```{ojs}
-//| title: "Tabela por estado"
-Inputs.table(por_uf.slice().sort((a, b) => d3.descending(valor(a), valor(b))), {
-  columns: ["nome", "total", "verificar", "sem", "pct"],
-  header: {nome: "Estado", total: "Espécies", com: "Com DNA", verificar: "A verificar",
-           sem: com_verificar ? "Sem DNA + a verificar" : "Sem DNA", pct: "% sem DNA"},
-  format: {total: fmtn, com: fmtn, verificar: fmtn, sem: fmtn, pct: fmtpct},
-  width: {nome: 150}, rows: 27, layout: "auto", select: false
-})
+{
+  const linhas = por_uf.slice().sort((a, b) => d3.descending(valor(a), valor(b)));
+  const max = d3.max(linhas, valor) || 1;
+  const fmtv = metrica === "% sem DNA" ? fmtpct : fmtn;
+  return htl.html`<p class="cc-chapeu">Ranking · ${metrica}${com_verificar.length && metrica !== "espécies na lista" ? " (com a verificar)" : ""}</p><ol class="cc-ufs">${linhas.map(d => htl.html`<li>
+    <span class="cc-uf-nome">${d.nome}</span>
+    <span class="cc-uf-barra"><i style="width:${100 * valor(d) / max}%"></i></span>
+    <span class="cc-uf-valor">${fmtv(valor(d))}</span>
+    <span class="cc-uf-detalhe">${fmtn(d.total)} espécies · ${fmtn(d.verificar)} a verificar</span>
+  </li>`)}</ol>`;
+}
 ```
+:::
+:::

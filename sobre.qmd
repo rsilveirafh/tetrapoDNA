@@ -1,9 +1,20 @@
 ---
-title: "Fontes e método"
-format: html
+pagetitle: "Fontes e método · tetrapoDNA"
+format:
+  html:
+    toc: true
+    toc-title: "Nesta página"
 ---
 
 {{< include _comum.qmd >}}
+
+::: {.cc-cabeca}
+[Fontes e método]{.cc-chapeu}
+
+# Como o painel conta o DNA de cada espécie
+
+[De onde vêm as listas e as sequências, o que quer dizer cada situação e como evitamos a "falsa órfã".]{.cc-intro}
+:::
 
 ## A pergunta
 
@@ -86,6 +97,14 @@ Um robô (GitHub Actions) roda toda semana: baixa as listas, consulta CTFB, BOLD
 os resultados em CSV no repositório. O histórico do git é o histórico dos dados. A consulta ao
 GenBank é incremental: espécies novas e as sem DNA são reconsultadas toda semana; as demais, a cada
 4 semanas.
+
+## Imagens
+
+- **Silhuetas** dos grupos: [PhyloPic](https://www.phylopic.org). *Rhinella marina* (Dennis C. Murphy),
+  *Tropidurus itambere* (Heitor Campos de Sousa) e *Myrmecophaga tridactyla* (Steven Traver), CC0 1.0;
+  *Pitangus sulphuratus* (Kai Caspar), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+- **Fotos** das espécies: foto padrão do táxon no [iNaturalist](https://www.inaturalist.org), só
+  quando tem licença Creative Commons. O autor e a licença aparecem em cada foto.
 
 ## Dados e código
 

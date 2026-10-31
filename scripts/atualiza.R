@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Pipeline completo: listas -> CTFB -> BOLD -> GenBank -> cobertura.
+# Pipeline completo: listas -> CTFB -> BOLD -> GenBank -> cobertura -> fotos.
 #
 # Uso (a partir da raiz do repositório):
 #   Rscript scripts/atualiza.R
@@ -8,7 +8,7 @@
 #
 # Variáveis de ambiente: NCBI_API_KEY (opcional, 10 req/s), NCBI_EMAIL (opcional).
 
-for (f in c("utils", "listas", "ameaca", "ctfb", "gbif", "bold", "genbank", "junta")) {
+for (f in c("utils", "listas", "ameaca", "ctfb", "gbif", "bold", "genbank", "junta", "fotos")) {
   source(file.path("R", paste0(f, ".R")), encoding = "UTF-8")
 }
 
@@ -80,6 +80,10 @@ cob <- monta_cobertura(especies, bold_cob, genbank, generos)
 atualiza_eventos(cob, cob_antiga)
 gravar_csv(cob, "data/cobertura.csv")
 atualiza_historico(cob)
+
+# 7. Fotos (iNaturalist) das espécies que não estão "com DNA" -----------------------
+tryCatch(atualiza_fotos(cob$especie[cob$situacao != "com DNA"], max_minutos = 20),
+         error = function(e) avisos <<- c(avisos, paste("iNaturalist indisponível:", conditionMessage(e))))
 
 pendentes <- sum(is.na(cob$n_genbank))
 if (pendentes > 0) avisos <- c(avisos, paste0("GenBank: ", pendentes, " espécies ainda não consultadas"))
