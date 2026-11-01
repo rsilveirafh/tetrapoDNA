@@ -1,0 +1,21 @@
+id,grupo,especie,situacao_painel,situacao_correta,motivo
+V004,anfibios,Crossodactylus lutzorum,sem DNA,sem DNA,confere
+V012,aves,Crypturellus duidae,sem DNA,só SRA,só dados brutos (SRA)
+V015,aves,Merulaxis stresemanni,sem DNA,só SRA,só dados brutos (SRA)
+V024,aves,Phylloscartes paulista,sem DNA,só SRA,só dados brutos (SRA)
+V026,mamiferos,Histiotus alienus,sem DNA,sem DNA,confere
+V028,mamiferos,Mico schneideri,sem DNA,só SRA,só dados brutos (SRA)
+V030,repteis,Apostolepis arenaria,sem DNA,sem DNA,confere
+V035,repteis,Calamodontophis ronaldoi,sem DNA,sem DNA,confere
+V050,repteis,Thamnodynastes silvai,sem DNA,sem DNA,confere
+V055,anfibios,Chthonerpeton markwilkinsoni,a verificar,sem DNA,confere
+V059,anfibios,Ischnocnema paranaensis,a verificar,só SRA,só dados brutos (SRA)
+V065,anfibios,Ranitomeya cyanovittata,a verificar,só SRA,só dados brutos (SRA)
+V070,aves,Crypturellus zabele,a verificar,sem DNA,confere
+V074,aves,Nengetus rufiventris,a verificar,com DNA,sinônimo não buscado
+V075,aves,Nyctidromus nigrescens,a verificar,com DNA,sinônimo não buscado
+V078,aves,Sclerurus peruvianus,a verificar,com DNA,outro
+V080,mamiferos,Dasyprocta variegata,a verificar,a verificar,outro
+V085,mamiferos,Rhipidomys caracolensis,a verificar,sem DNA,confere
+V114,aves,Veniliornis passerinus,com DNA,com DNA,confere
+V120,repteis,Phalotris lemniscatus,com DNA,com DNA,confere
