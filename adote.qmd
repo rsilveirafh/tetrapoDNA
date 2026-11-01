@@ -60,6 +60,9 @@ ele registra a adoção por você.
 - **Deposite as sequências** em base pública (BOLD e/ou GenBank) com o voucher citado. Só assim a
   espécie sai da lista.
 - **Confira o nome antes:** espécies marcadas como "a verificar" podem ter sequências sob nome antigo.
+- **Veja se já há dados brutos:** espécies com a marca "só dados brutos" têm leituras de
+  sequenciamento no SRA que ninguém montou. Montar e depositar um marcador a partir delas pode
+  bastar, sem nova coleta.
   Se achar uma, abra uma issue com o link: a correção vale tanto quanto uma adoção.
 
 ## Espécies adotadas

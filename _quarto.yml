@@ -9,6 +9,7 @@ project:
     - estados.qmd
     - adote.qmd
     - sobre.qmd
+    - autor.qmd
   resources:
     - data/cobertura.csv
     - data/historico.csv
@@ -42,6 +43,8 @@ website:
         text: Adote uma espécie
       - href: sobre.qmd
         text: Fontes e método
+      - href: autor.qmd
+        text: Quem faz
     right:
       - icon: github
         href: "https://github.com/rsilveirafh/tetrapoDNA"

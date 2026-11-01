@@ -1,9 +1,6 @@
 ---
 pagetitle: "Fontes e método · tetrapoDNA"
-format:
-  html:
-    toc: true
-    toc-title: "Nesta página"
+format: html
 ---
 
 {{< include _comum.qmd >}}
@@ -23,12 +20,19 @@ oficiais das sociedades científicas: quantas sequências de DNA públicas exist
 [BOLD Systems](https://boldsystems.org) e no [GenBank](https://www.ncbi.nlm.nih.gov/genbank/)? E
 quais espécies ainda **não têm nenhuma**? O recorte é de tetrápodes; peixes não entram.
 
+**O que o painel mede.** Sequências de DNA **depositadas** no BOLD ou no GenBank, de qualquer
+marcador (COI, cyt b, 16S, RAG-1, mitogenoma...). Não é um levantamento de genomas nem de bases de
+referência para eDNA: uma espécie com uma única sequência de 16S conta como "com DNA", mesmo que não
+sirva para todo primer de eDNA. Leituras brutas de sequenciamento (SRA) não contam como sequência
+depositada; elas aparecem só como uma marca, "só dados brutos" (ver abaixo).
+
 ```{ojs}
 {
   const n = conta(cobertura);
   return md`Na última atualização (${status.atualizado_em}): **${fmtn(n.total)}** espécies,
 **${fmtn(n.com)}** com DNA público (${fmtpct(n.com / n.total)}), **${fmtn(n.sem)}** sem nenhum DNA
-encontrado e **${fmtn(n.verificar)}** a verificar.`;
+encontrado e **${fmtn(n.verificar)}** a verificar. Das sem DNA e a verificar, **${fmtn(n.brutos)}** já
+têm leituras brutas no SRA.`;
 }
 ```
 
@@ -60,6 +64,9 @@ lista do grupo as traz (tartarugas marinhas, aves marinhas, cetáceos, sirênios
   `"Gênero epíteto"[Organism]`. O filtro `[Organism]` usa a taxonomia do NCBI e já inclui os
   sinônimos que o NCBI conhece. Os nomes anteriores dados pela lista e os sinônimos do CTFB entram
   na mesma busca com `OR`.
+- **SRA** (NCBI E-utilities, `esearch` no banco `sra`): só para as espécies sem sequência montada,
+  pelo campo Organism, com o nome da lista e as combinações do mesmo epíteto. Sinônimos com outro
+  epíteto ficam de fora, para não contar dados de uma espécie-mãe desmembrada. Não muda a situação.
 - **Catálogo Taxonômico da Fauna do Brasil** ([CTFB/JBRJ](https://fauna.jbrj.gov.br), API REST
   aberta): sinônimos, ocorrência por UF (usada para aves, e para anfíbios sem UF na lista),
   endemismo e ano de descrição quando a lista não traz.
@@ -79,8 +86,20 @@ lista do grupo as traz (tartarugas marinhas, aves marinhas, cetáceos, sirênios
 | Situação | Critério |
 |---|---|
 | **com DNA** | ao menos um registro no BOLD ou no GenBank **sob o nome da lista** ou sob outra combinação do **mesmo epíteto** (transferência de gênero; a observação diz qual) |
-| **a verificar** | sem DNA sob o nome da lista, mas: há sequências só sob nome alternativo com outro epíteto (sinônimo, nome aceito no CTFB ou no GBIF; pode ser desmembramento ou agrupamento de espécies); ou o nome não está no CTFB ou não é reconhecido pelo GBIF (não deu para conferir sinônimos); ou o nome da lista é sinônimo no CTFB; ou a espécie tem sinônimos conhecidos; ou o nome aparece no GenBank fora do campo Organism (nota, subespécie, identificação antiga); ou o gênero tem 500 registros ou mais no GenBank |
-| **sem DNA** | nenhuma sequência pública sob o nome e os sinônimos conhecidos, e nenhum dos sinais acima |
+| **a verificar** | sem DNA sob o nome da lista, mas: há sequências só sob nome alternativo com outro epíteto (sinônimo, nome aceito no CTFB ou no GBIF; pode ser desmembramento ou agrupamento de espécies); ou o nome não está no CTFB ou não é reconhecido pelo GBIF (não deu para conferir sinônimos); ou o nome da lista é sinônimo no CTFB; ou o nome aparece no GenBank fora do campo Organism (nota, subespécie, identificação antiga); ou o gênero tem 500 registros ou mais no GenBank |
+| **sem DNA** | nenhuma sequência depositada sob o nome e os sinônimos conhecidos, e nenhum dos sinais acima |
+
+**Só dados brutos** é uma marca, não uma situação. Vai nas espécies "sem DNA" ou "a verificar" que
+têm leituras de sequenciamento públicas no SRA (captura de UCE, ddRAD, RNA-Seq, genoma) e nenhuma
+sequência montada no BOLD ou no GenBank. Elas seguem na lacuna, mas quem for adotar pode começar
+montando o que já existe.
+
+**Ter sinônimos não é motivo para "a verificar".** Todos os sinônimos conhecidos (da lista, do CTFB
+e do GBIF) entram na busca do BOLD e do GenBank. Se nenhum deles tem sequência, a espécie é "sem
+DNA", e a observação lista os sinônimos buscados para quem quiser conferir. Até a atualização de
+2026-10-30, ter sinônimos bastava para "a verificar". Com a mudança, 91 espécies passaram para "sem
+DNA" (45 répteis, 22 aves, 14 anfíbios e 10 mamíferos), e o histórico dessa data foi recalculado
+com a regra nova. As datas anteriores no `data/historico.csv` seguem a regra antiga.
 
 **Cuidado com a "falsa órfã".** Uma espécie pode parecer sem DNA porque o banco usa um nome antigo,
 um nome com erro ou uma identificação só até gênero ("*Gênero* sp."). Por isso o painel nunca afirma
@@ -91,9 +110,27 @@ identificação no BOLD. Achou uma sequência que o painel não viu? Abra uma is
 Faixas de registros no BOLD seguem o [iBOL Europe Gap List](https://species.iboleurope.org):
 0 / 1-2 / 3-9 / 10 ou mais. A ideia de ranquear lacunas vem de lá.
 
+## Validação
+
+Para medir o erro, sorteamos 120 espécies dos dados de 2026-10-30 (50 sem DNA, 50 a verificar e 20
+com DNA, proporcionais ao tamanho de cada grupo) e conferimos cada uma por caminhos diferentes dos
+do pipeline: taxonomia do NCBI, busca pelo taxid, texto livre do GenBank, o epíteto em gêneros
+antigos, o SRA e os nomes parecidos no BOLD.
+
+- **Nenhuma falsa órfã** entre as 50 sem DNA e **nenhum falso positivo** entre as 20 com DNA, para
+  sequências depositadas.
+- **14 das 50 sem DNA tinham leituras brutas no SRA.** Foi isso que levou à marca "só dados brutos".
+- **Das 50 a verificar, 37 eram sem DNA,** 6 tinham DNA sob um gênero antigo ou nome trinomial que
+  nenhuma fonte de sinônimos conhecia, 4 só dados brutos e 3 eram desmembramentos de fato duvidosos.
+  O alerta "nome não reconhecido no GBIF" achou 5 das 6; "gênero muito sequenciado", sozinho,
+  nenhuma.
+
+A conferência foi assistida por IA e está passando por auditoria humana. Método, planilhas e
+scripts em [`validacao/`](https://github.com/rsilveirafh/tetrapoDNA/tree/main/validacao).
+
 ## Atualização
 
-Um robô (GitHub Actions) roda toda semana: baixa as listas, consulta CTFB, BOLD e GenBank e grava
+Um robô (GitHub Actions) roda toda semana: baixa as listas, consulta CTFB, BOLD, GenBank e SRA e grava
 os resultados em CSV no repositório. O histórico do git é o histórico dos dados. A consulta ao
 GenBank é incremental: espécies novas e as sem DNA são reconsultadas toda semana; as demais, a cada
 4 semanas.

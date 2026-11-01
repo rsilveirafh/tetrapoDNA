@@ -37,7 +37,13 @@ htl.html`<div class="cc-numeros">
 </div>`
 ```
 
-[Atualizado em ${status.atualizado_em}, com dados do BOLD Systems e do GenBank. Atualização automática toda semana.]{.nota-pequena}
+```{ojs}
+htl.html`<p class="nota-pequena">Das ${fmtn(n.sem + n.verificar)} espécies sem sequência depositada,
+  <b>${fmtn(n.brutos)}</b> já têm leituras brutas de sequenciamento no SRA que ninguém montou
+  (<a href="especies.html">só dados brutos</a>).</p>`
+```
+
+[Atualizado em ${status.atualizado_em}, com dados do BOLD Systems, do GenBank e do SRA. Atualização automática toda semana.]{.nota-pequena}
 
 ::: {.cc-secao}
 [O retrato]{.cc-chapeu}
@@ -78,7 +84,7 @@ htl.html`<div class="cc-legenda">${SITUACOES.map((s, i) =>
 }
 ```
 
-[**Com DNA**: ao menos um registro público no BOLD ou no GenBank sob o nome da lista (ou sob uma combinação antiga do mesmo epíteto). **A verificar**: aparece sem DNA, mas há motivo para desconfiar do nome (sinônimo, nome ausente do CTFB, gênero muito sequenciado). **Sem DNA**: nada encontrado sob o nome e os sinônimos conhecidos. Detalhes em [Fontes e método](sobre.qmd).]{.nota-pequena}
+[**Com DNA**: ao menos um registro público no BOLD ou no GenBank sob o nome da lista (ou sob uma combinação antiga do mesmo epíteto). **A verificar**: aparece sem DNA, mas há motivo para desconfiar do nome (DNA só sob outro nome, nome ausente do CTFB ou do GBIF, gênero muito sequenciado). **Sem DNA**: nada encontrado sob o nome e os sinônimos conhecidos. O painel conta sequências de DNA depositadas, de qualquer marcador; não é um levantamento de genomas nem de bases de referência para eDNA. Detalhes em [Fontes e método](sobre.qmd).]{.nota-pequena}
 :::
 
 ::: {.cc-secao}
@@ -101,6 +107,7 @@ htl.html`<div class="cc-legenda">${SITUACOES.map((s, i) =>
       <span class="cc-linha"><span>com DNA</span><b>${fmtpct(c.com / c.total)}</b></span>
       <span class="cc-linha"><span>a verificar</span><b>${fmtn(c.verificar)}</b></span>
       <span class="cc-linha cc-sem"><span>sem DNA</span><b>${fmtn(c.sem)}</b></span>
+      <span class="cc-linha cc-brutos-linha"><span>só dados brutos</span><b>${fmtn(c.brutos)}</b></span>
     </a>`;
   });
   return htl.html`<div class="cc-grupos">${cartoes}</div>`;

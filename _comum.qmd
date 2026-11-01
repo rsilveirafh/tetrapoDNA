@@ -34,6 +34,8 @@ cobertura = {
       ufs_lista: ufs,
       endemica: d.endemica_br === true || d.endemica_br === "TRUE",
       ameacada: AMEACADAS.has(cat),
+      // leituras brutas no SRA, sem sequência montada (marca, não é situação)
+      brutos: d.dados_brutos === true || d.dados_brutos === "TRUE",
       adocao: a ? a.situacao : null,
       adotada_por: a ? a.instituicao : null,
       // prioridade: ameaçada > DD > endêmica > descrita há mais tempo
@@ -56,12 +58,21 @@ conta = dados => {
     total: dados.length,
     com: c.get("com DNA") ?? 0,
     verificar: c.get("a verificar") ?? 0,
-    sem: c.get("sem DNA") ?? 0
+    sem: c.get("sem DNA") ?? 0,
+    brutos: dados.filter(d => d.brutos).length
   };
 }
 
 link_adote = especie =>
   `${REPO}/issues/new?template=adote.yml&title=${encodeURIComponent("Adoção: " + especie)}&especie=${encodeURIComponent(especie)}`
+
+link_sra = especie =>
+  `https://www.ncbi.nlm.nih.gov/sra/?term=${encodeURIComponent('"' + especie + '"[Organism]')}`
+
+// Marca das espécies sem sequência montada que têm leituras brutas no SRA.
+selo_brutos = d => d.brutos
+  ? htl.html`<a class="cc-chip cc-brutos" href="${link_sra(d.especie)}" target="_blank" title="Há leituras de sequenciamento no SRA, mas nenhuma sequência montada no BOLD ou no GenBank">só dados brutos</a>`
+  : ""
 
 selo_situacao = s => {
   const cls = s === "com DNA" ? "com" : s === "sem DNA" ? "sem" : "verificar";

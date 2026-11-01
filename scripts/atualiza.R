@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# Pipeline completo: listas -> CTFB -> BOLD -> GenBank -> cobertura -> fotos.
+# Pipeline completo: listas -> CTFB -> BOLD -> GenBank -> SRA -> cobertura -> fotos.
 #
 # Uso (a partir da raiz do repositório):
 #   Rscript scripts/atualiza.R
@@ -8,7 +8,7 @@
 #
 # Variáveis de ambiente: NCBI_API_KEY (opcional, 10 req/s), NCBI_EMAIL (opcional).
 
-for (f in c("utils", "listas", "ameaca", "ctfb", "gbif", "bold", "genbank", "junta", "fotos")) {
+for (f in c("utils", "listas", "ameaca", "ctfb", "gbif", "bold", "genbank", "sra", "junta", "fotos")) {
   source(file.path("R", paste0(f, ".R")), encoding = "UTF-8")
 }
 
@@ -74,9 +74,19 @@ provis <- especies |>
   filter(n_bold == 0, !is.na(n_genbank), n_genbank == 0)
 generos <- atualiza_generos(provis$genero)
 
+# 5b. SRA: leituras brutas das que seguem sem sequência montada (só marca) ---------
+sem_montada <- especies |>
+  left_join(select(bold_cob, especie, n_bold_comb), by = "especie") |>
+  left_join(select(genbank, especie, n_genbank_comb), by = "especie") |>
+  filter(coalesce(n_bold_comb, 0L) == 0, coalesce(n_genbank_comb, 0L) == 0)
+sra <- tryCatch(atualiza_sra(sem_montada, max_minutos = max_minutos), error = function(e) {
+  avisos <<- c(avisos, paste("SRA indisponível:", conditionMessage(e)))
+  ler_csv("data/sra.csv", col_types = cols(n_sra = col_integer(), .default = col_character()))
+})
+
 # 6. Junta, histórico e eventos -----------------------------------------------------
 cob_antiga <- ler_csv("data/cobertura.csv", col_types = cols(.default = col_character()))
-cob <- monta_cobertura(especies, bold_cob, genbank, generos)
+cob <- monta_cobertura(especies, bold_cob, genbank, generos, sra)
 atualiza_eventos(cob, cob_antiga)
 gravar_csv(cob, "data/cobertura.csv")
 atualiza_historico(cob)

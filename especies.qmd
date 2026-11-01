@@ -21,7 +21,7 @@ sem_dna = cobertura.filter(d => d.situacao !== "com DNA")
 
 # ${fmtn(sem_dna.length)} espécies esperando a primeira sequência
 
-[Ordenadas por prioridade: **ameaçadas** (CR, EN, VU), depois **DD**, **endêmicas** e as **descritas há mais tempo**. "Sem DNA" quer dizer que nada foi encontrado sob o nome da lista e os sinônimos conhecidos; "a verificar", que há motivo para desconfiar do nome. Não é prova de ausência: confira a observação de cada espécie.]{.cc-intro}
+[Ordenadas por prioridade: **ameaçadas** (CR, EN, VU), depois **DD**, **endêmicas** e as **descritas há mais tempo**. "Sem DNA" quer dizer que nada foi encontrado sob o nome da lista e os sinônimos conhecidos; "a verificar", que há motivo para desconfiar do nome. **Só dados brutos** marca as que já têm leituras de sequenciamento no SRA que ninguém montou: talvez baste montar. Não é prova de ausência: confira a observação de cada espécie.]{.cc-intro}
 :::
 
 ::: {.cc-filtros}
@@ -34,7 +34,7 @@ viewof situacoes = Inputs.checkbox(["sem DNA", "a verificar", "com DNA"], {label
 ```
 
 ```{ojs}
-viewof extras = Inputs.checkbox(["endêmicas do Brasil", "ameaçadas (CR, EN, VU)"], {label: "Só"})
+viewof extras = Inputs.checkbox(["endêmicas do Brasil", "ameaçadas (CR, EN, VU)", "com dados brutos no SRA"], {label: "Só"})
 ```
 
 ```{ojs}
@@ -65,6 +65,7 @@ filtradas = {
     .filter(d => familia === "Todas" || d.familia === familia)
     .filter(d => !extras.includes("endêmicas do Brasil") || d.endemica)
     .filter(d => !extras.includes("ameaçadas (CR, EN, VU)") || d.ameacada)
+    .filter(d => !extras.includes("com dados brutos no SRA") || d.brutos)
     .filter(d => !q || `${d.especie} ${d.familia} ${d.ordem}`.toLowerCase().includes(q))
     .sort((a, b) => d3.ascending(a.prioridade, b.prioridade) ||
                     d3.ascending(a.ano_descricao ?? 9999, b.ano_descricao ?? 9999) ||
@@ -106,12 +107,13 @@ cartao = d => {
   return htl.html`<article class="cc-especie">
     ${capa}
     <div class="cc-corpo">
-      <div class="cc-topo">${selo_situacao(d.situacao)}${ameaca}${d.endemica ? htl.html`<span class="cc-chip">endêmica</span>` : ""}</div>
+      <div class="cc-topo">${selo_situacao(d.situacao)}${selo_brutos(d)}${ameaca}${d.endemica ? htl.html`<span class="cc-chip">endêmica</span>` : ""}</div>
       <h3><em>${d.especie}</em></h3>
       <p class="cc-autoria">${d.autoria ?? (d.ano_descricao ?? "")}</p>
       <p class="cc-onde">${d.grupo_rotulo} · ${d.familia}<br>${ufs_curto(d.ufs_lista)}</p>
       <p class="cc-bases"><a href="${link_bold(d.especie)}" target="_blank">BOLD <b>${fmtn(d.n_bold)}</b></a>
-        <a href="${link_genbank(d.especie)}" target="_blank">GenBank <b>${d.n_genbank == null ? "?" : fmtn(d.n_genbank)}</b></a></p>
+        <a href="${link_genbank(d.especie)}" target="_blank">GenBank <b>${d.n_genbank == null ? "?" : fmtn(d.n_genbank)}</b></a>
+        ${d.n_sra > 0 ? htl.html`<a href="${link_sra(d.especie)}" target="_blank">SRA <b>${fmtn(d.n_sra)}</b></a>` : ""}</p>
       ${d.situacao !== "com DNA" && d.observacao ? htl.html`<p class="cc-obs">${d.observacao}</p>` : ""}
       <div class="cc-acao">${acao}</div>
     </div>
@@ -124,10 +126,10 @@ cartao = d => {
   if (vista === "Tabela") {
     return Inputs.table(filtradas, {
       columns: ["especie", "adocao", "situacao", "grupo_rotulo", "familia", "ano_descricao",
-                "categoria_ameaca", "endemica", "n_bold", "n_genbank", "ufs", "observacao"],
+                "categoria_ameaca", "endemica", "n_bold", "n_genbank", "n_sra", "ufs", "observacao"],
       header: {especie: "Espécie", situacao: "Situação", grupo_rotulo: "Grupo", familia: "Família",
                ano_descricao: "Descrita em", categoria_ameaca: "Ameaça", endemica: "Endêmica",
-               n_bold: "BOLD", n_genbank: "GenBank", ufs: "UFs", observacao: "Observação",
+               n_bold: "BOLD", n_genbank: "GenBank", n_sra: "SRA", ufs: "UFs", observacao: "Observação",
                adocao: ""},
       format: {
         especie: d => htl.html`<em>${d}</em>`,
@@ -137,6 +139,8 @@ cartao = d => {
         n_bold: (d, i, dados) => htl.html`<a href="${link_bold(dados[i].especie)}" target="_blank" title="Abrir no BOLD">${fmtn(d)}</a>`,
         n_genbank: (d, i, dados) => d == null ? "pendente" :
           htl.html`<a href="${link_genbank(dados[i].especie)}" target="_blank" title="Abrir no GenBank">${fmtn(d)}</a>`,
+        n_sra: (d, i, dados) => d > 0
+          ? htl.html`<a href="${link_sra(dados[i].especie)}" target="_blank" title="Leituras brutas no SRA">${fmtn(d)}</a>` : "",
         ufs: d => d ? String(d).replaceAll(";", " ") : "sem dado",
         observacao: d => htl.html`<span class="nota-pequena">${d ?? ""}</span>`,
         adocao: (d, i, dados) => d
