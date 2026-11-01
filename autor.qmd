@@ -20,7 +20,7 @@ format: html
 
 [Ricardo Rodrigues da Silveira Filho · Natal, RN]{.cc-papel-autor}
 
-Biólogo, doutor em Zoologia, hoje trabalhando com dados e software. Durante uma década, fez perguntas a dados biológicos em herpetologia, mimetismo e filogeografia, principalmente de serpentes.
+Biólogo, doutor em Zoologia, hoje trabalhando com dados e software. Durante uma década, fez perguntas a dados biológicos em herpetologia, mimetismo, filogenética e filogeografia, principalmente de serpentes, e também em conservação, biodiversidade, bioinformática e ecologia vegetal.
 
 No último trabalho, como Analista de Inovação na [Seteg](https://www.setegce.com/), consultoria ambiental, construiu sistemas usados pela empresa inteira e por clientes: softwares de gestão interna, aplicativos de coleta de dados em campo, análise de dados e relatórios, painéis de Business Intelligence e uma plataforma de gestão ESG. Também liderou o time de inovação, com três desenvolvedores e um designer.
 
