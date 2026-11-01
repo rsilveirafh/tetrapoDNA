@@ -1,0 +1,121 @@
+id,especie,situacao_painel,dna_publico,base,nome_no_banco,n_sequencias,acesso_exemplo,situacao_correta,motivo,comentario,conferido_por,data_conferencia
+V001,Chthonerpeton braestrupi,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V002,Chthonerpeton exile,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V003,Crossodactylus cyclospinus,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V004,Crossodactylus lutzorum,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V005,Frostius pernambucensis,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V006,Hylodes vanzolinii,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V007,Mimosiphonops reinhardti,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V008,Sphaenorhynchus bromelicola,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V009,Synapturanus zombie,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V010,Aulacorhynchus whitelianus,sem DNA,sim,SRA,Aulacorhynchus whitelianus,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V011,Conopias trivirgatus,sem DNA,sim,SRA,Conopias trivirgatus,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V012,Crypturellus duidae,sem DNA,sim,SRA,Crypturellus duidae,1,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V013,Hemitriccus mirandae,sem DNA,sim,SRA,Hemitriccus mirandae,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V014,Heterocercus aurantiivertex,sem DNA,sim,SRA,Heterocercus aurantiivertex,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V015,Merulaxis stresemanni,sem DNA,sim,SRA,Merulaxis stresemanni,1,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V016,Myrmelastes caurensis,sem DNA,sim,SRA,Myrmelastes caurensis,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V017,Myrmoborus melanurus,sem DNA,sim,SRA,Myrmoborus melanurus,1,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V018,Nonnula amaurocephala,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V019,Nonnula sclateri,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V020,Notharchus swainsoni,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V021,Ortalis araucuan,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V022,Philydor novaesi,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V023,Phyllomyias griseocapilla,sem DNA,sim,SRA,Phyllomyias griseocapilla,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V024,Phylloscartes paulista,sem DNA,sim,SRA,Phylloscartes paulista,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V025,Echimys vieirai,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V026,Histiotus alienus,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V027,Makalata obscura,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V028,Mico schneideri,sem DNA,sim,SRA,Mico schneideri,4,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V029,Rhogeessa hussoni,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V030,Apostolepis arenaria,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V031,Apostolepis borellii,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V032,Apostolepis tenuis,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V033,Bachia micromela,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V034,Bachia oxyrhina,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V035,Calamodontophis ronaldoi,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V036,Copeoglossum arajara,sem DNA,sim,SRA,Copeoglossum arajara,2,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V037,Dipsas copei,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V038,Dipsas lavillai,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V039,Helicops apiaka,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V040,Heterodactylus lundii,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V041,Heterodactylus septentrionalis,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V042,Lepidoblepharis hoogmoedi,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V043,Leposternon mineiro,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V044,Liotyphlops caissara,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V045,Liotyphlops taylori,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V046,Parapostolepis polylepis,sem DNA,sim,SRA,Parapostolepis polylepis,1,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V047,Pseudoboa haasi,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V048,Rondonops xanthomystax,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V049,Siphlophis leucocephalus,sem DNA,sim,SRA,Siphlophis leucocephalus,1,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V050,Thamnodynastes silvai,sem DNA,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V051,Alainia ernestoi,a verificar,sim,GenBank,Gastrotheca ernestoi,16,KR559920.1,com DNA,sinônimo não buscado,transferência de gênero recente; o nome novo não está no CTFB nem no GBIF,Claude (checagem assistida),2026-10-31
+V052,Allobates caldwellae,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V053,Allobates kamilae,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V054,Chiasmocleis atlantica,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V055,Chthonerpeton markwilkinsoni,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V056,Eotheca megacephala,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V057,Ischnocnema garciai,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V058,Ischnocnema karst,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V059,Ischnocnema paranaensis,a verificar,sim,SRA,Ischnocnema paranaensis,1,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V060,Pristimantis fouqueti,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V061,Proceratophrys bagnoi,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V062,Proceratophrys sanctaritae,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V063,Pseudopaludicola atragula,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V064,Ranitomeya aetherea,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V065,Ranitomeya cyanovittata,a verificar,sim,SRA,Ranitomeya cyanovittata,3,,só SRA,só dados brutos (SRA),"no GenBank só como ""cf."" (17 registros), que não contam",Claude (checagem assistida),2026-10-31
+V066,Scinax lindsayi,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V067,Caryothraustes brasiliensis,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V068,Catharus swainsoni,a verificar,incerto,ambos,Catharus ustulatus,41230,,a verificar,outro,desmembramento: sequências sob C. ustulatus podem incluir populações de C. swainsoni; conferir localidade,Claude (checagem assistida),2026-10-31
+V069,Chrysuronia rondoniae,a verificar,sim,GenBank,Amazilia rondoniae,2,NC_033404.1,com DNA,sinônimo não buscado,mitogenoma completo sob o gênero antigo,Claude (checagem assistida),2026-10-31
+V070,Crypturellus zabele,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V071,Cypseloides senex,a verificar,não,nenhuma,,,,sem DNA,confere,o único registro com o nome é de um piolho (Dennyus) coletado na ave,Claude (checagem assistida),2026-10-31
+V072,Myiothlypis mesoleuca,a verificar,incerto,GenBank,Myiothlypis rivularis,36,,a verificar,outro,desmembramento: sequências sob M. rivularis podem ser de M. mesoleuca; conferir localidade,Claude (checagem assistida),2026-10-31
+V073,Myrmoborus stictopterus,a verificar,sim,SRA,Myrmoborus lugubris stictopterus,12,,só SRA,só dados brutos (SRA),captura de sequências (UCE) sob o nome de subespécie,Claude (checagem assistida),2026-10-31
+V074,Nengetus rufiventris,a verificar,sim,GenBank,Neoxolmis rufiventris,9,MG722632.1,com DNA,sinônimo não buscado,gênero antigo fora do CTFB e do GBIF,Claude (checagem assistida),2026-10-31
+V075,Nyctidromus nigrescens,a verificar,sim,GenBank,Nyctipolus nigrescens,14,KU361175.1,com DNA,sinônimo não buscado,gênero antigo fora do CTFB e do GBIF,Claude (checagem assistida),2026-10-31
+V076,Piculus capistratus,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V077,Sciaphylax pallens,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V078,Sclerurus peruvianus,a verificar,sim,GenBank,Sclerurus mexicanus peruvianus,30,JQ903993.1,com DNA,outro,táxon elevado a espécie; sequências sob o nome trinomial,Claude (checagem assistida),2026-10-31
+V079,Thlypopsis pyrrhocoma,a verificar,sim,GenBank,Pyrrhocoma ruficeps,9,AF006249.1,com DNA,outro,nome novo por homonímia; o painel já apontava o nome alternativo,Claude (checagem assistida),2026-10-31
+V080,Dasyprocta variegata,a verificar,incerto,GenBank,Dasyprocta fuliginosa,60,OR725235.1,a verificar,outro,o NCBI trata D. variegata sob D. fuliginosa; há amostras do Brasil (rio Aripuanã),Claude (checagem assistida),2026-10-31
+V081,Eumops delticus,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V082,Marmosops woodalli,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V083,Monodelphis saci,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V084,Oxymycterus caparaoe,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V085,Rhipidomys caracolensis,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V086,Alopoglossus collii,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V087,Ameivula confusioniba,a verificar,sim,SRA,Ameivula confusioniba,4,,só SRA,só dados brutos (SRA),dados brutos no SRA; nada montado no GenBank nem no BOLD,Claude (checagem assistida),2026-10-31
+V088,Ameivula jalapensis,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V089,Amphisbaena carvalhoi,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V090,Amphisbaena frontalis,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V091,Amphisbaena kiriri,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V092,Amphisbaena sanctaeritae,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V093,Atractus emmeli,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V094,Atractus maculatus,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V095,Atractus serranus,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V096,Bothrops jabrensis,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V097,Homonota xiru,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V098,Lygodactylus neglectus,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V099,Micrurus nattereri,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V100,Phalotris concolor,a verificar,não,nenhuma,,,,sem DNA,confere,"nada no NCBI (taxonomia, nuccore, SRA, BioSample) nem no BOLD, inclusive no gênero",Claude (checagem assistida),2026-10-31
+V101,Brachycephalus ephippium,com DNA,sim,ambos,,278,MT828475.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V102,Hyloxalus chlorocraspedus,com DNA,sim,ambos,,32,DQ502182.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V103,Leptodactylus jolyi,com DNA,sim,ambos,,26,PX375443.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V104,Melanophryniscus alipioi,com DNA,sim,GenBank,,109,KY260870.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V105,Microcaecilia taylori,com DNA,sim,GenBank,,1,KU726570.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V106,Charadrius collaris,com DNA,sim,ambos,,38,OR594261.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V107,Coccycua minuta,com DNA,sim,ambos,,10,AB531791.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V108,Geotrygon montana,com DNA,sim,ambos,,88,PX094572.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V109,Ortalis motmot,com DNA,sim,ambos,,15,AY659778.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V110,Phimosus infuscatus,com DNA,sim,ambos,,7,JQ910185.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V111,Piprites chloris,com DNA,sim,ambos,,36,MN356298.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V112,Procnias averano,com DNA,sim,GenBank,,6,KJ810423.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V113,Thalurania watertonii,com DNA,sim,GenBank,,12,MT471218.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V114,Veniliornis passerinus,com DNA,sim,ambos,,24,KR049456.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V115,Mesoplodon layardii,com DNA,sim,GenBank,,39,OQ754738.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V116,Phyllomys centralis,com DNA,sim,GenBank,,13,KX852281.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V117,Plecturocebus cupreus,com DNA,sim,ambos,,581,BK068605.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V118,Bachia trisanale,com DNA,sim,GenBank,,3,DQ383198.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V119,Colobosaura modesta,com DNA,sim,GenBank,,352,PQ733208.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31
+V120,Phalotris lemniscatus,com DNA,sim,GenBank,,5,GQ457877.1,com DNA,confere,registros sob o nome da espécie,Claude (checagem assistida),2026-10-31

@@ -26,11 +26,17 @@ Atualização automática semanal (GitHub Actions); site estático no GitHub Pag
 | Situação | Critério |
 |---|---|
 | com DNA | ao menos um registro no BOLD ou no GenBank sob o nome da lista ou sob outra combinação do mesmo epíteto (transferência de gênero) |
-| a verificar | sem DNA sob o nome da lista, mas há motivo para desconfiar do nome: sequências só sob sinônimo/nome aceito no CTFB; nome ausente do CTFB ou não reconhecido pelo GBIF; nome da lista é sinônimo no CTFB; sinônimos conhecidos; nome aparece no GenBank fora do campo Organism; gênero com ≥ 500 registros no GenBank |
-| sem DNA | nenhuma sequência pública sob o nome e os sinônimos conhecidos, e nenhum sinal acima |
+| a verificar | sem DNA sob o nome da lista, mas há motivo para desconfiar do nome: sequências só sob sinônimo/nome aceito no CTFB; nome ausente do CTFB ou não reconhecido pelo GBIF; nome da lista é sinônimo no CTFB; nome aparece no GenBank fora do campo Organism; gênero com ≥ 500 registros no GenBank |
+| sem DNA | nenhuma sequência depositada sob o nome e os sinônimos conhecidos, e nenhum sinal acima |
+
+O painel conta sequências de DNA **depositadas** (qualquer marcador) no BOLD ou no GenBank; não é
+um levantamento de genomas nem de bases de referência para eDNA. A marca **só dados brutos**
+(coluna `dados_brutos`) vai nas espécies sem DNA ou a verificar que têm leituras de sequenciamento
+no SRA e nada montado: não muda a situação.
 
 O painel nunca afirma "não existe DNA" (o risco da **falsa órfã**: o banco usa um nome antigo).
-A coluna `observacao` diz o motivo de cada "a verificar".
+A coluna `observacao` diz o motivo de cada "a verificar". A validação da classificação (amostra de
+120 espécies) está em `validacao/PROTOCOLO.md`.
 
 ## Fontes
 
@@ -47,6 +53,8 @@ Além das listas:
   (uma chamada por classe; outra com `;geo:country/ocean:Brazil`). Sem chave.
 - **NCBI E-utilities**: `esearch.fcgi?db=nuccore&term=("Gênero epíteto"[Organism] OR "sinônimo"[Organism])&rettype=count`.
   Sem chave: 3 req/s; com `NCBI_API_KEY`: 10 req/s.
+- **NCBI SRA**: `esearch.fcgi?db=sra&term=("Gênero epíteto"[Organism])&rettype=count`, só para as espécies
+  sem sequência montada, com o nome e as combinações do mesmo epíteto. Cache de 28 dias em `data/sra.csv`.
 - **Catálogo Taxonômico da Fauna do Brasil** (CTFB/JBRJ), API REST `https://fauna.jbrj.gov.br/rest/mv_planilha_extendida`:
   sinônimos, UF (aves; anfíbios sem UF na lista), endemismo e ano de descrição quando faltam.
 - **Portaria MMA nº 1.704/2026** (Lista Nacional Oficial das Espécies da Fauna Ameaçadas de Extinção,
@@ -55,6 +63,10 @@ Além das listas:
 - **GBIF Backbone** (`api.gbif.org/v1/species/match` e `/synonyms`): sinônimos das candidatas a órfã
   (o CTFB quase não tem sinônimos de aves e répteis). Cache de 90 dias em `data/gbif_sinonimos.csv`.
 - **IBGE**, malha de UFs (API de malhas, qualidade mínima) para o mapa.
+- **iNaturalist** (`api.inaturalist.org/v1/taxa`): foto padrão das espécies que não estão "com DNA",
+  só com licença Creative Commons (autor e licença aparecem no cartão). Cache de 180 dias em
+  `data/fotos.csv`.
+- **PhyloPic**: silhuetas dos quatro grupos (créditos em `assets/silhuetas/CREDITOS.md`).
 
 ## Estrutura
 
@@ -65,18 +77,27 @@ R/ctfb.R        CTFB: sinônimos, UF, endemismo
 R/gbif.R        GBIF: sinônimos das candidatas a órfã
 R/bold.R        BOLD: resumo por classe, soma sob nome + sinônimos
 R/genbank.R     NCBI: contagem incremental com cache, pausa e retry
+R/sra.R         NCBI SRA: leituras brutas das espécies sem sequência montada
 R/junta.R       situação, observação, histórico e eventos
+R/fotos.R       iNaturalist: fotos com licença CC das espécies sem DNA
 scripts/atualiza.R  pipeline completo
+scripts/amostra_validacao.R, confere_amostra.R, resume_validacao.R  validação (ver validacao/)
 data/           saídas versionadas (o diff do git é o histórico)
   especies.csv     lista unificada (4 grupos, esquema comum)
   cobertura.csv    1 linha por espécie: contagens, situação, observação
   genbank.csv      cache do GenBank (termo de busca, contagem, data)
+  sra.csv          cache do SRA (termo de busca, contagem, data)
   historico.csv    totais por grupo a cada execução
   eventos.csv      espécies que ganharam DNA (data)
   adocoes.csv      adoções aprovadas (lido pelo site)
+  fotos.csv        foto, autor e licença (iNaturalist) das espécies sem DNA
   ctfb.csv, cache/ insumos (CTFB e resumo do BOLD)
 data-raw/       cópias das fontes (usadas se o download falhar)
-*.qmd           site Quarto (dashboards com OJS: filtros no navegador, sem servidor)
+validacao/      amostra, checagem, julgamento e auditoria da classificação
+notas/          revisão de literatura
+*.qmd           site Quarto (páginas com OJS: filtros no navegador, sem servidor)
+tema-*.scss, estilo.scss  identidade visual (cores, fontes, componentes)
+assets/         logo, favicon e silhuetas
 ```
 
 Para trocar a lista de um grupo (por exemplo, aves CBRO 2021 → uma edição nova), reescreva a
@@ -90,6 +111,8 @@ Requisitos: R ≥ 4.3 e Quarto ≥ 1.5.
 
 ```r
 install.packages(c("httr2", "jsonlite", "dplyr", "readr", "tidyr", "stringr", "purrr", "readxl", "tibble"))
+# só para os scripts de validação:
+install.packages(c("xml2", "openxlsx"))
 ```
 
 ```sh
