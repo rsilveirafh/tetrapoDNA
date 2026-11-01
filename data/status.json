@@ -1,7 +1,9 @@
 {
-  "atualizado_em": "2026-10-30",
+  "atualizado_em": "2026-11-01",
   "especies": 4880,
   "genbank_pendentes": 0,
-  "ncbi_chave": false,
-  "avisos": []
+  "ncbi_chave": true,
+  "avisos": [
+    "BOLD: usando o último resultado salvo"
+  ]
 }

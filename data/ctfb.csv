@@ -525,8 +525,8 @@ taxonID,genus,specificEpithet,scientificNameAuthorship,namePublishedInYear,taxon
 232598,Eleutherodactylus,johnstonei,"Barbour, 1914",1914,accepted,,BR-SP,NÃO,Amphibia,Eleutherodactylus johnstonei
 239648,Eleutherodactylus,luteolus,"(Gosse, 1851)",1851,accepted,,,NÃO,Amphibia,Eleutherodactylus luteolus
 240679,Eleutherodactylus,manezinho,"Garcia, 1996",1996,synonym,90142,,,Amphibia,Eleutherodactylus manezinho
-29663,Engystomops,freibergi,"(Danoso-Barros, 1969)",1969,accepted,,,,Amphibia,Engystomops freibergi
-22523,Engystomops,petersi,"Jiménez de la Espada, 1872",1872,accepted,,,,Amphibia,Engystomops petersi
+29663,Engystomops,freibergi,"(Danoso-Barros, 1969)",1969,accepted,,,NÃO,Amphibia,Engystomops freibergi
+22523,Engystomops,petersi,"Jiménez de la Espada, 1872",1872,accepted,,,NÃO,Amphibia,Engystomops petersi
 239782,Engystomops,pustulatus,"(Shreve, 1941)",1941,accepted,,,NÃO,Amphibia,Engystomops pustulatus
 55498,Euparkerella,brasiliensis,"(Parker, 1926)",1926,accepted,,,,Amphibia,Euparkerella brasiliensis
 56311,Euparkerella,cochranae,"Izecksohn, 1988",1988,accepted,,,,Amphibia,Euparkerella cochranae
@@ -963,8 +963,8 @@ taxonID,genus,specificEpithet,scientificNameAuthorship,namePublishedInYear,taxon
 66266,Phyllomedusa,tetraploidea,"Pombal & Haddad, 1992",1992,accepted,,,,Amphibia,Phyllomedusa tetraploidea
 77384,Phyllomedusa,vaillantii,"Boulenger, 1882",1882,accepted,,,,Amphibia,Phyllomedusa vaillantii
 252769,Phyllonastes,myrmecoides,"(Lynch, 1976)",1976,accepted,,BR-AM,NÃO,Amphibia,Phyllonastes myrmecoides
-28805,Physalaemus,aguirrei,"Bokermann, 1966",1966,accepted,,,,Amphibia,Physalaemus aguirrei
-35394,Physalaemus,albifrons,"(Spix, 1824)",1824,accepted,,,,Amphibia,Physalaemus albifrons
+28805,Physalaemus,aguirrei,"Bokermann, 1966",1966,accepted,,BR-BA;BR-ES;BR-MG,SIM,Amphibia,Physalaemus aguirrei
+35394,Physalaemus,albifrons,"(Spix, 1824)",1824,accepted,,,SIM,Amphibia,Physalaemus albifrons
 49952,Physalaemus,albonotatus,"(Steindachner, 1864)",1864,accepted,,,,Amphibia,Physalaemus albonotatus
 55577,Physalaemus,angrensis,"Weber, Gonzaga & Carvalho e Silva, 2005",2005,accepted,,,,Amphibia,Physalaemus angrensis
 240004,Physalaemus,araxa,"Leal, Zornosa-Torres, Augusto-Alves, Dena, Pezzuti, Leite, Lourenço, Garcia & Toledo, 2021",2021,accepted,,BR-ES,SIM,Amphibia,Physalaemus araxa
