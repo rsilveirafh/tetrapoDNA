@@ -170,6 +170,8 @@ md`> da Silveira-Filho, R. R. (2026). *tetrapoDNA: a lacuna de DNA dos tetrápod
 }
 ```
 
+Os dados (`data/cobertura.csv`) são CC-BY 4.0 e o código é MIT.
+
 Cite também as fontes dos dados: as listas de espécies da tabela acima, o BOLD e o GenBank.
 
 - Ratnasingham, S. & Hebert, P. D. N. (2007). BOLD: The Barcode of Life Data System. *Molecular
