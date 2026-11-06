@@ -26,6 +26,19 @@ Genômica e eDNA ficam fora; o SRA entra só como a marca "só dados brutos".
 
 ## Pipeline
 
+- [ ] **Limite do BOLD (suporte do BOLD, 2026-11-06):** abaixo de 20 requisições por minuto, ou o
+      Cloudflare bloqueia o IP (aconteceu em 2026-11-05 com a validação do traqueophyDNA, que usa o
+      mesmo endpoint; o bloqueio pega também o GitHub Actions e o navegador). Regra daqui em diante:
+      no máximo 15 por minuto (1 a cada 4 s), sem retry em 403 ou 429 (parar no primeiro). Checagem
+      em lote usa os **Data Packages** do BOLD (todos os dados públicos, filtrar localmente), não a
+      API. O pipeline semanal (2 consultas por classe) está dentro do limite.
+      - [x] `scripts/confere_amostra.R`: `bold_conta()` usava `Sys.sleep(0.4)` (até ~150 por
+            minuto) e repetia em 429. Agora igual ao traqueophyDNA: `req_throttle(rate = 1 / 4)`,
+            sem novas tentativas, para no primeiro 403/429 (2026-11-06).
+      - [x] `R/bold.R` (pipeline semanal): `req_base(tentativas = 1)`, sem repetir em 429, e
+            `req_throttle(rate = 1 / 4)` (2026-11-06).
+      - [ ] Avaliar os Data Packages do BOLD para a próxima validação.
+
 - [ ] **Epíteto em gêneros antigos:** buscar no GenBank o epíteto dentro da família (como em
       `scripts/confere_amostra.R`) e listar os nomes candidatos na observação, como sinal de "a
       verificar". Excluir candidatos que são espécies válidas da própria lista (ex.: *Mionectes

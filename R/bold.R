@@ -6,12 +6,16 @@
 # Com `;geo:country/ocean:Brazil` na query, só material coletado no Brasil.
 # A API está na versão "0.1.0": a chamada fica isolada aqui e, se falhar ou
 # mudar de formato, o pipeline reaproveita o último resultado bom.
+# Limite do BOLD (suporte, 2026-11-06): abaixo de 20 consultas por minuto, senão o
+# Cloudflare bloqueia o IP. Aqui: no máximo 1 a cada 4 s e sem novas tentativas
+# (um 429 repetido piora o bloqueio); se falhar, vale o último resultado bom.
 
 BOLD_URL <- "https://portal.boldsystems.org/api/summary"
 
 bold_resumo <- function(classe, brasil = FALSE) {
   q <- paste0("tax:class:", classe, if (brasil) ";geo:country/ocean:Brazil")
-  resp <- req_base(BOLD_URL) |>
+  resp <- req_base(BOLD_URL, tentativas = 1) |>
+    req_throttle(rate = 1 / 4, realm = "bold") |>
     req_url_query(query = q, fields = "species", reduce = "false") |>
     req_perform()
   sp <- resp_body_json(resp)$species
