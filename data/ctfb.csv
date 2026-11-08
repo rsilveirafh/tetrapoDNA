@@ -571,7 +571,7 @@ taxonID,genus,specificEpithet,scientificNameAuthorship,namePublishedInYear,taxon
 71665,Hyalinobatrachium,mondolfii,"Señaris & Ayarzaguena, 2001",2001,accepted,,,,Amphibia,Hyalinobatrachium mondolfii
 242718,Hyalinobatrachium,muiraquitan,"Oliveira & Hernández-Ruz, 2017",2017,accepted,,BR-PA,SIM,Amphibia,Hyalinobatrachium muiraquitan
 85438,Hyalinobatrachium,munozorum,"(Lynch & Duellman, 1973)",1973,accepted,,,,Amphibia,Hyalinobatrachium munozorum
-242721,Hyalinobatrachium,taylori,"(Goin, 1968)",1968,accepted,,BR-AP;BR-TO,NÃO,Amphibia,Hyalinobatrachium taylori
+242721,Hyalinobatrachium,taylori,"(Goin, 1968)",1968,accepted,,BR-AP;BR-RR;BR-TO,NÃO,Amphibia,Hyalinobatrachium taylori
 242722,Hyalinobatrachium,tricolor,"Castroviejo-Fisher, Vilà, Ayarzagüena, Blanc, & Ernst,, 2011",2011,accepted,,BR-AP,NÃO,Amphibia,Hyalinobatrachium tricolor
 233013,Hydrolaetare,caparu,"Jansen, Gonzales-Álvarez, Köhler, 2007",2007,accepted,,BR-RO,NÃO,Amphibia,Hydrolaetare caparu
 89900,Hydrolaetare,dantasi,"(Bokermann, 1959)",1959,accepted,,BR-AC;BR-AM,SIM,Amphibia,Hydrolaetare dantasi
@@ -1055,7 +1055,7 @@ taxonID,genus,specificEpithet,scientificNameAuthorship,namePublishedInYear,taxon
 252752,Pristimantis,giorgii,"Oliveira, Silva, Guimarães, Penhacek, Martínez, Rodrigues, Santana, & Hernández-Ruz, 2020",2020,accepted,,BR-PA,SIM,Amphibia,Pristimantis giorgii
 252753,Pristimantis,grandoculis,"(Van Lidth de Jeude, 1904)",1904,accepted,,BR-AP;BR-PA,NÃO,Amphibia,Pristimantis grandoculis
 232622,Pristimantis,guianensis,"Mônico, Ferrão, Chaparro, Fouquet & Lima, 2022",2022,accepted,,BR-AM;BR-PA;BR-RR,NÃO,Amphibia,Pristimantis guianensis
-50898,Pristimantis,gutturalis,"(Hoogmoed, Lynch & Lescure, 1977)",1977,accepted,,,,Amphibia,Pristimantis gutturalis
+50898,Pristimantis,gutturalis,"(Hoogmoed, Lynch & Lescure, 1977)",1977,accepted,,BR-AP,NÃO,Amphibia,Pristimantis gutturalis
 32750,Pristimantis,inguinalis,"(Parker, 1940)",1940,accepted,,,,Amphibia,Pristimantis inguinalis
 252758,Pristimantis,koehleri,"Padial & De la Riva, 2009",2009,accepted,,BR-AM;BR-PA;BR-RO,NÃO,Amphibia,Pristimantis koehleri
 87219,Pristimantis,lacrimosus,"(Jiménez de la Espada, 1875)",1875,accepted,,,,Amphibia,Pristimantis lacrimosus
@@ -1084,9 +1084,9 @@ taxonID,genus,specificEpithet,scientificNameAuthorship,namePublishedInYear,taxon
 63286,Pristimantis,variabilis,"(Lynch, 1968)",1968,accepted,,,,Amphibia,Pristimantis variabilis
 54013,Pristimantis,ventrigranulosus,"Maciel, Vaz-Silva, de Oliveira & Padial, 2012",2012,accepted,,,,Amphibia,Pristimantis ventrigranulosus
 49374,Pristimantis,ventrimarmoratus,"(Boulenger, 1912)",1912,accepted,,,,Amphibia,Pristimantis ventrimarmoratus
-67902,Pristimantis,vilarsi,"(Melin, 1941)",1941,accepted,,,,Amphibia,Pristimantis vilarsi
+67902,Pristimantis,vilarsi,"(Melin, 1941)",1941,accepted,,BR-AM;BR-RR,NÃO,Amphibia,Pristimantis vilarsi
 41753,Pristimantis,vinhai,"(Bokermann, 1975)",1975,accepted,,,,Amphibia,Pristimantis vinhai
-36371,Pristimantis,zeuctotylus,"(Lynch & Hoogmoed, 1977)",1977,accepted,,,,Amphibia,Pristimantis zeuctotylus
+36371,Pristimantis,zeuctotylus,"(Lynch & Hoogmoed, 1977)",1977,accepted,,BR-AM;BR-AP;BR-PA;BR-RR,NÃO,Amphibia,Pristimantis zeuctotylus
 72271,Pristimantis,zimmermanae,"(Heyer & Hardy, 1991)",1991,accepted,,BR-AM;BR-RR,,Amphibia,Pristimantis zimmermanae
 62014,Proceratophrys,appendiculata,"(Günther, 1873)",1873,accepted,,,,Amphibia,Proceratophrys appendiculata
 241201,Proceratophrys,ararype,"Mângia, Koroiva, Nunes, Roberto, Ávila, Sant’Anna, Santana, & Garda, 2018",2018,accepted,,BR-CE,SIM,Amphibia,Proceratophrys ararype
